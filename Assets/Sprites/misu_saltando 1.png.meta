@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: a33ec32a34fe5463ca8c750eed13c3d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3088253249415130985
+    second: misu_saltando 1_0
+  - first:
+      213: 1773468561698433485
+    second: misu_saltando 1_1
+  - first:
+      213: 833426840280699493
+    second: misu_saltando 1_2
+  - first:
+      213: -928351040881720401
+    second: misu_saltando 1_3
+  - first:
+      213: -5595689286810164223
+    second: misu_saltando 1_4
+  - first:
+      213: -5927996250118406253
+    second: misu_saltando 1_5
+  - first:
+      213: -4559386406185989570
+    second: misu_saltando 1_6
+  - first:
+      213: -3590137316840988824
+    second: misu_saltando 1_7
+  - first:
+      213: -5068917393566603084
+    second: misu_saltando 1_8
+  - first:
+      213: -6865817160676101617
+    second: misu_saltando 1_9
+  - first:
+      213: 4916675791734502668
+    second: misu_saltando 1_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: misu_saltando 1_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 154
+        width: 430
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7905a2c28025425d0800000000000000
+      internalID: -3088253249415130985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_1
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 240
+        width: 437
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc9ab58b240ac9810800000000000000
+      internalID: 1773468561698433485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_2
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 333
+        width: 369
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5621539ab4de09b00800000000000000
+      internalID: 833426840280699493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_3
+      rect:
+        serializedVersion: 2
+        x: 2184
+        y: 329
+        width: 307
+        height: 661
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3816d95a5dd13f0800000000000000
+      internalID: -928351040881720401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_4
+      rect:
+        serializedVersion: 2
+        x: 2557
+        y: 290
+        width: 339
+        height: 568
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 104a83aad3e1852b0800000000000000
+      internalID: -5595689286810164223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_5
+      rect:
+        serializedVersion: 2
+        x: 2892
+        y: 154
+        width: 446
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f38d181d68bbda0800000000000000
+      internalID: -5927996250118406253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_6
+      rect:
+        serializedVersion: 2
+        x: 3372
+        y: 440
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a0a81683ec9b0c0800000000000000
+      internalID: -4559386406185989570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_7
+      rect:
+        serializedVersion: 2
+        x: 3377
+        y: 153
+        width: 400
+        height: 634
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f91d6b1254d2ec0800000000000000
+      internalID: -3590137316840988824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_8
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 405
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b8e9a0ac7697a9b0800000000000000
+      internalID: -5068917393566603084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_9
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 416
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02be154ba7b7b0a0800000000000000
+      internalID: -6865817160676101617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misu_saltando 1_10
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 396
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05f81a359a8b3440800000000000000
+      internalID: 4916675791734502668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      misu_saltando 1_0: -3088253249415130985
+      misu_saltando 1_1: 1773468561698433485
+      misu_saltando 1_10: 4916675791734502668
+      misu_saltando 1_2: 833426840280699493
+      misu_saltando 1_3: -928351040881720401
+      misu_saltando 1_4: -5595689286810164223
+      misu_saltando 1_5: -5927996250118406253
+      misu_saltando 1_6: -4559386406185989570
+      misu_saltando 1_7: -3590137316840988824
+      misu_saltando 1_8: -5068917393566603084
+      misu_saltando 1_9: -6865817160676101617
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
