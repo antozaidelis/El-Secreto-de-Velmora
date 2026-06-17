@@ -4,6 +4,7 @@ public class PlayerMovement2D : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 8f;
+
     private Rigidbody2D rb;
     private Animator animator;
     private bool isGrounded = true;
@@ -38,9 +39,8 @@ public class PlayerMovement2D : MonoBehaviour
     }
 
     void OnCollisionStay2D(Collision2D col)
-
     {
-        if (col.gameObject.name == "Ground")
+        if (col.gameObject.CompareTag("ground"))
         {
             isGrounded = true;
             animator.SetBool("isJumping", false);

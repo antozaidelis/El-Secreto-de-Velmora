@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RecolectorIngredientes.cs" />
+    <Compile Include="Assets\Scripts\TestTrigger.cs" />
+    <Compile Include="Assets\Scripts\InventarioUI.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement2D.cs" />
   </ItemGroup>
   <ItemGroup>
