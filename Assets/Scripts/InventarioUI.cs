@@ -8,14 +8,30 @@ public class InventarioUI : MonoBehaviour
     [Header("Referencias")]
     public GameObject panelMochila;
     public List<Image> slots;
-    public List<TextMeshProUGUI> textosCantidad; // un texto de cantidad por cada slot, mismo orden
+    public List<TextMeshProUGUI> textosCantidad;
+
+    [Header("Recetas")]
+    public GameObject seccionRecetas;
 
     private bool mochilaAbierta = false;
+    private bool recetasAbiertas = false;
+
+    void Start()
+    {
+        if (seccionRecetas != null)
+            seccionRecetas.SetActive(false);
+    }
 
     public void ToggleMochila()
     {
         mochilaAbierta = !mochilaAbierta;
         panelMochila.SetActive(mochilaAbierta);
+    }
+
+    public void ToggleRecetas()
+    {
+        recetasAbiertas = !recetasAbiertas;
+        seccionRecetas.SetActive(recetasAbiertas);
     }
 
     public void ActualizarUI(List<Sprite> iconos, List<int> cantidades)
@@ -29,7 +45,6 @@ public class InventarioUI : MonoBehaviour
 
                 if (i < textosCantidad.Count && textosCantidad[i] != null)
                 {
-                    // Si hay más de 1, mostramos "x2", "x3", etc. Si hay solo 1, no mostramos nada.
                     if (cantidades[i] > 1)
                     {
                         textosCantidad[i].text = "x" + cantidades[i];
