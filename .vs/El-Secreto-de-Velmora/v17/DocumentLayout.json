@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\velmora\\El-Secreto-de-Velmora\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|d:\\velmora\\el-secreto-de-velmora\\assets\\scripts\\inventarioui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|D:\\velmora\\El-Secreto-de-Velmora\\assets\\scripts\\zonadecaida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\zonadecaida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|d:\\velmora\\el-secreto-de-velmora\\assets\\scripts\\playermovement2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermovement2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|D:\\velmora\\El-Secreto-de-Velmora\\assets\\scripts\\inventarioui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inventarioui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|D:\\velmora\\El-Secreto-de-Velmora\\assets\\scripts\\recolectoringredientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\recolectoringredientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|D:\\velmora\\El-Secreto-de-Velmora\\assets\\scripts\\playermovement2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3FEBCD12-4695-D93F-A439-F9714384941D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermovement2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\Inventario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,23 +30,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "ZonaDeCaida.cs",
+              "DocumentMoniker": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\ZonaDeCaida.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ZonaDeCaida.cs",
+              "ToolTip": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\ZonaDeCaida.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ZonaDeCaida.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwD0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T16:51:20.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "PlayerMovement2D.cs",
               "DocumentMoniker": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\PlayerMovement2D.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerMovement2D.cs",
               "ToolTip": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\PlayerMovement2D.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerMovement2D.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwC0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T05:14:25.702Z"
+              "WhenOpened": "2026-06-17T05:14:25.702Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Inventario.cs",
               "DocumentMoniker": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\Inventario.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inventario.cs",
@@ -54,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "InventarioUI.cs",
               "DocumentMoniker": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\InventarioUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\InventarioUI.cs",
@@ -62,12 +80,11 @@
               "RelativeToolTip": "Assets\\Scripts\\InventarioUI.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAgwDUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T04:47:59.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-12T04:47:59.223Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "RecolectorIngredientes.cs",
               "DocumentMoniker": "D:\\velmora\\El-Secreto-de-Velmora\\Assets\\Scripts\\RecolectorIngredientes.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RecolectorIngredientes.cs",

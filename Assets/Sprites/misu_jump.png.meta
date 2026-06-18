@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 9bb6ee0f27c5fd547a3623c45a87ebb0
+guid: d79c3f3b562e37f448f20379493f1860
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3333254761949951694
-    second: walk 1_0
+      213: 1067621977978702570
+    second: misu_jump_0
   - first:
-      213: 7940832716429157321
-    second: walk 1_1
+      213: 2522953368283679904
+    second: misu_jump_1
   - first:
-      213: 7150543419540403252
-    second: walk 1_2
+      213: -6542139461821482865
+    second: misu_jump_2
   - first:
-      213: -2329486858704168473
-    second: walk 1_3
+      213: -9108309267026945687
+    second: misu_jump_3
   - first:
-      213: 997774324659384114
-    second: walk 1_4
+      213: -5675163402669122412
+    second: misu_jump_4
   - first:
-      213: 6501237754767990083
-    second: walk 1_5
+      213: -6774464232778689802
+    second: misu_jump_5
   - first:
-      213: 1830525485031167292
-    second: walk 1_6
+      213: 2984055958459653228
+    second: misu_jump_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -114,30 +114,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk 1_0
+      name: misu_jump_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 753
-        width: 249
-        height: 362
+        x: 12
+        y: 50
+        width: 147
+        height: 185
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec6f7efab89124e20800000000000000
-      internalID: 3333254761949951694
+      spriteID: aea02df4884f0de00800000000000000
+      internalID: 1067621977978702570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk 1_1
+      name: misu_jump_1
       rect:
         serializedVersion: 2
-        x: 470
-        y: 752
-        width: 226
-        height: 361
+        x: 199
+        y: 78
+        width: 149
+        height: 189
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c36f838841833e60800000000000000
-      internalID: 7940832716429157321
+      spriteID: 0ac8c65a8b4530320800000000000000
+      internalID: 2522953368283679904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk 1_2
+      name: misu_jump_2
       rect:
         serializedVersion: 2
-        x: 823
-        y: 746
-        width: 228
-        height: 368
+        x: 398
+        y: 110
+        width: 126
+        height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43476b8da55db3360800000000000000
-      internalID: 7150543419540403252
+      spriteID: f88b01b32d6a535a0800000000000000
+      internalID: -6542139461821482865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk 1_3
+      name: misu_jump_3
       rect:
         serializedVersion: 2
-        x: 68
-        y: 374
-        width: 220
-        height: 368
+        x: 551
+        y: 108
+        width: 106
+        height: 223
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e95ffd4b000cafd0800000000000000
-      internalID: -2329486858704168473
+      spriteID: 969d572caf8c89180800000000000000
+      internalID: -9108309267026945687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk 1_4
+      name: misu_jump_4
       rect:
         serializedVersion: 2
-        x: 463
-        y: 370
-        width: 242
-        height: 372
+        x: 676
+        y: 95
+        width: 116
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23fe35b367ec8dd00800000000000000
-      internalID: 997774324659384114
+      spriteID: 49c1c9d14f4cd31b0800000000000000
+      internalID: -5675163402669122412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk 1_5
+      name: misu_jump_5
       rect:
         serializedVersion: 2
-        x: 780
-        y: 371
-        width: 248
-        height: 369
+        x: 789
+        y: 50
+        width: 151
+        height: 185
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34ddd4dfa49093a50800000000000000
-      internalID: 6501237754767990083
+      spriteID: 6f213a54ca44cf1a0800000000000000
+      internalID: -6774464232778689802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk 1_6
+      name: misu_jump_6
       rect:
         serializedVersion: 2
-        x: 63
-        y: 8
-        width: 249
-        height: 362
+        x: 949
+        y: 49
+        width: 138
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c351597ea35576910800000000000000
-      internalID: 1830525485031167292
+      spriteID: c6c10e1851f796920800000000000000
+      internalID: 2984055958459653228
       vertices: []
       indices: 
       edges: []
@@ -298,13 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walk 1_0: 3333254761949951694
-      walk 1_1: 7940832716429157321
-      walk 1_2: 7150543419540403252
-      walk 1_3: -2329486858704168473
-      walk 1_4: 997774324659384114
-      walk 1_5: 6501237754767990083
-      walk 1_6: 1830525485031167292
+      misu_jump_0: 1067621977978702570
+      misu_jump_1: 2522953368283679904
+      misu_jump_2: -6542139461821482865
+      misu_jump_3: -9108309267026945687
+      misu_jump_4: -5675163402669122412
+      misu_jump_5: -6774464232778689802
+      misu_jump_6: 2984055958459653228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

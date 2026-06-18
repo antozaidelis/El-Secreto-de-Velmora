@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 62c65c45e1462d74dac59a2313d9e57c
+guid: 66af2ef6f770bef43a5c91157efbc06f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1711178491229162259
-    second: walk (1)_0
+      213: 7426649431501456691
+    second: misu_walk_0
   - first:
-      213: -3732711972447804
-    second: walk (1)_1
+      213: 3566849650778031637
+    second: misu_walk_1
   - first:
-      213: -1605446786928901471
-    second: walk (1)_2
+      213: 3723326172199601090
+    second: misu_walk_2
   - first:
-      213: -7806120011118415276
-    second: walk (1)_3
+      213: -2187508046428994832
+    second: misu_walk_3
   - first:
-      213: 6322746506103892308
-    second: walk (1)_4
+      213: -2874981042933517293
+    second: misu_walk_4
   - first:
-      213: -1117425675844805259
-    second: walk (1)_5
+      213: 6928655877739909211
+    second: misu_walk_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 27
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,30 +111,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walk (1)_0
+      name: misu_walk_0
       rect:
         serializedVersion: 2
-        x: 132
-        y: 292
-        width: 124
-        height: 180
+        x: 8
+        y: 35
+        width: 155
+        height: 227
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31bc00585c35fb710800000000000000
-      internalID: 1711178491229162259
+      spriteID: 33540045f42c01760800000000000000
+      internalID: 7426649431501456691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk (1)_1
+      name: misu_walk_1
       rect:
         serializedVersion: 2
-        x: 282
-        y: 289
-        width: 114
-        height: 182
+        x: 198
+        y: 29
+        width: 143
+        height: 232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c955d44e1db2fff0800000000000000
-      internalID: -3732711972447804
+      spriteID: 516c9d10cdeff7130800000000000000
+      internalID: 3566849650778031637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk (1)_2
+      name: misu_walk_2
       rect:
         serializedVersion: 2
-        x: 405
-        y: 279
-        width: 114
-        height: 184
+        x: 353
+        y: 19
+        width: 144
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a28f4f37ae48b9e0800000000000000
-      internalID: -1605446786928901471
+      spriteID: 2c34fd43d69eba330800000000000000
+      internalID: 3723326172199601090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk (1)_3
+      name: misu_walk_3
       rect:
         serializedVersion: 2
-        x: 519
-        y: 287
-        width: 111
-        height: 183
+        x: 499
+        y: 28
+        width: 139
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 452f73f55371ba390800000000000000
-      internalID: -7806120011118415276
+      spriteID: 0f28a4d850964a1e0800000000000000
+      internalID: -2187508046428994832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk (1)_4
+      name: misu_walk_4
       rect:
         serializedVersion: 2
-        x: 633
-        y: 285
-        width: 122
-        height: 185
+        x: 643
+        y: 27
+        width: 152
+        height: 232
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4592a2da278eeb750800000000000000
-      internalID: 6322746506103892308
+      spriteID: 31437f749f30a18d0800000000000000
+      internalID: -2874981042933517293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk (1)_5
+      name: misu_walk_5
       rect:
         serializedVersion: 2
-        x: 762
-        y: 285
-        width: 123
-        height: 184
+        x: 806
+        y: 27
+        width: 159
+        height: 231
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57d9e58a44b1e70f0800000000000000
-      internalID: -1117425675844805259
+      spriteID: b501c9bafc7872060800000000000000
+      internalID: 6928655877739909211
       vertices: []
       indices: 
       edges: []
@@ -273,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walk (1)_0: 1711178491229162259
-      walk (1)_1: -3732711972447804
-      walk (1)_2: -1605446786928901471
-      walk (1)_3: -7806120011118415276
-      walk (1)_4: 6322746506103892308
-      walk (1)_5: -1117425675844805259
+      misu_walk_0: 7426649431501456691
+      misu_walk_1: 3566849650778031637
+      misu_walk_2: 3723326172199601090
+      misu_walk_3: -2187508046428994832
+      misu_walk_4: -2874981042933517293
+      misu_walk_5: 6928655877739909211
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
