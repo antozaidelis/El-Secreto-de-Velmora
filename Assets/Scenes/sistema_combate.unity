@@ -1295,7 +1295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &128767553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3794,7 +3794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &464547898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8408,10 +8408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7c85dfee8931f41b12f13064ed2907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventarioUI
-  panelMochila: {fileID: 0}
-  slots: []
-  textosCantidad: []
-  seccionRecetas: {fileID: 0}
 --- !u!114 &1110153987
 MonoBehaviour:
   m_ObjectHideFlags: 0
