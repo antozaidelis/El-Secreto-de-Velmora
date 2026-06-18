@@ -393,6 +393,14 @@ public class CombateManager : MonoBehaviour
         return esTurnoJugador && !combateTerminado;
     }
 
+    public void CerrarPanelSeleccion()
+    {
+        if (panelSeleccionIngrediente != null)
+            panelSeleccionIngrediente.SetActive(false);
+
+        recetaSiendoCargada = "";
+    }
+
     private void AplicarDanioAlEnemigo(int danio, string nombreReceta)
     {
         vidaEnemigo -= danio;
