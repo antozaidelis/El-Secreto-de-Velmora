@@ -114,10 +114,19 @@ public class RecolectorIngredientes : MonoBehaviour
     }
 
     // Devuelve el sprite asociado a un nombre de ingrediente (usado por el panel de selección en combate)
+    // Tolerante a diferencias de mayúsculas/minúsculas y espacios extra al inicio/final
     public Sprite ObtenerIconoDe(string nombreIngrediente)
     {
-        if (mapaIconos.ContainsKey(nombreIngrediente))
-            return mapaIconos[nombreIngrediente];
+        if (string.IsNullOrEmpty(nombreIngrediente)) return null;
+
+        string buscado = nombreIngrediente.Trim().ToLower();
+
+        foreach (var par in mapaIconos)
+        {
+            if (par.Key.Trim().ToLower() == buscado)
+                return par.Value;
+        }
+
         return null;
     }
 
@@ -130,9 +139,10 @@ public class RecolectorIngredientes : MonoBehaviour
 
         foreach (SlotInventario slot in slotsInventario)
         {
-            if (mapaIconos.ContainsKey(slot.nombreIngrediente))
+            Sprite icono = ObtenerIconoDe(slot.nombreIngrediente);
+            if (icono != null)
             {
-                iconos.Add(mapaIconos[slot.nombreIngrediente]);
+                iconos.Add(icono);
                 cantidades.Add(slot.cantidad);
             }
         }
