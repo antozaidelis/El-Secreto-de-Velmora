@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/sistema_combate.unity
+    guid: ec4ccc97fe02e064bb1697ceee26c1c5
+  - enabled: 1
+    path: Assets/Scenes/Escena_Lara.unity
+    guid: f33cea8470b86c84c959817fcccd9b0b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,6 +26,23 @@ public class CombateManager : MonoBehaviour
     };
     public Sprite[] expresionesPorFrase; // mismo orden y cantidad que frasesEnemigo
     private int indiceFraseActual = 0;
+
+    [Header("Frases durante la batalla (globo de diálogo)")]
+    public GameObject globoDialogoBatalla;
+    public TextMeshProUGUI textoGloboDialogoBatalla;
+    [TextArea]
+    public string[] frasesBatalla = new string[]
+    {
+        "El pensamiento no se vence con fuerza.",
+        "Ya vi esa receta antes, más de una vez.",
+        "¿Sabés por qué luchás, o solo seguís el instinto?",
+        "El bosque enseña paciencia. Vos todavía no.",
+        "No es la sartén la que decide, sino quien la sostiene.",
+        "Saber cuándo retirarse también es una forma de sabiduría."
+    };
+    public int turnosMinimoEntreFrases = 2;
+    public int turnosMaximoEntreFrases = 3;
+    private int turnosHastaProximaFrase;
 
     [Header("Vida")]
     public int vidaJugadorMax = 100;
@@ -140,6 +158,26 @@ public class CombateManager : MonoBehaviour
     public float duracionTemblor = 0.3f;
     public float intensidadTemblor = 0.15f;
 
+    [Header("Panel de resultado")]
+    public GameObject panelResultado;
+    public TextMeshProUGUI textoResultado;
+    public TextMeshProUGUI textoRecompensas;
+    public Image iconoRecompensa1;
+    public Image iconoRecompensa2;
+    public Image iconoRecompensa3;
+    public Button botonContinuar;
+    public string nombreEscenaMapa = "Escena_Lara";
+    [TextArea] public string fraseVictoria = "Las flores dejan de temblar. El Hurón se retira, dejando su ofrenda entre el pasto.";
+    [TextArea] public string fraseDerrota = "El bosque te vio caer. Cuando despertás, tu mochila está vacía.";
+
+    [Header("Recompensas al ganar")]
+    public string ingredienteRecompensa1 = "flor del pensamiento";
+    public int cantidadRecompensa1 = 1;
+    public string ingredienteRecompensa2 = "pluma de calendula";
+    public int cantidadRecompensa2 = 1;
+    public string ingredienteRecompensa3 = "pimiento_0";
+    public int cantidadRecompensa3 = 3;
+
     private bool esTurnoJugador = true;
     private bool combateTerminado = false;
 
@@ -158,6 +196,9 @@ public class CombateManager : MonoBehaviour
         if (panelSeleccionIngrediente != null)
             panelSeleccionIngrediente.SetActive(false);
 
+        if (panelResultado != null)
+            panelResultado.SetActive(false);
+
         ActualizarTextosCarga();
     }
 
@@ -173,6 +214,17 @@ public class CombateManager : MonoBehaviour
         {
             retratoEnemigoChico.sprite = expresionesPorFrase[indiceFraseActual];
         }
+    }
+
+    private void MostrarFraseDeBatalla()
+    {
+        if (frasesBatalla == null || frasesBatalla.Length == 0) return;
+        if (globoDialogoBatalla == null || textoGloboDialogoBatalla == null) return;
+
+        string frase = frasesBatalla[Random.Range(0, frasesBatalla.Length)];
+
+        textoGloboDialogoBatalla.text = frase;
+        globoDialogoBatalla.SetActive(true);
     }
 
     public void AvanzarDialogo()
@@ -201,6 +253,11 @@ public class CombateManager : MonoBehaviour
         combateTerminado = false;
         esTurnoJugador = true;
 
+        turnosHastaProximaFrase = Random.Range(turnosMinimoEntreFrases, turnosMaximoEntreFrases + 1);
+
+        if (globoDialogoBatalla != null)
+            globoDialogoBatalla.SetActive(false);
+
         ActualizarUIVida();
         ActualizarCaraMisu();
         ActualizarCaraEnemigo();
@@ -211,6 +268,8 @@ public class CombateManager : MonoBehaviour
     public void UsarSalteadoPicante()
     {
         if (!PuedeJugar()) return;
+
+        if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
         if (cargaSalteadoPicante <= 0f)
         {
@@ -228,6 +287,8 @@ public class CombateManager : MonoBehaviour
     public void UsarSopaReconfortante()
     {
         if (!PuedeJugar()) return;
+
+        if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
         if (cargaSopaReconfortante <= 0f)
         {
@@ -254,6 +315,8 @@ public class CombateManager : MonoBehaviour
     public void UsarInfusionAmarga()
     {
         if (!PuedeJugar()) return;
+
+        if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
         if (cargaInfusionAmarga <= 0f)
         {
@@ -533,6 +596,14 @@ public class CombateManager : MonoBehaviour
         // Antes de actuar, la postura defensiva del turno anterior ya no aplica
         enPosturaDefensiva = false;
 
+        // Chequea si corresponde mostrar una frase de batalla este turno
+        turnosHastaProximaFrase--;
+        if (turnosHastaProximaFrase <= 0)
+        {
+            MostrarFraseDeBatalla();
+            turnosHastaProximaFrase = Random.Range(turnosMinimoEntreFrases, turnosMaximoEntreFrases + 1);
+        }
+
         // Elige aleatoriamente entre Mordida (0) y Postura Defensiva (1)
         int accionElegida = Random.Range(0, 2);
 
@@ -621,13 +692,97 @@ public class CombateManager : MonoBehaviour
             Debug.Log("¡Ganaste el combate!");
             if (caraMisu != null) caraMisu.sprite = caraMisuGanando;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoPerdiendo;
+
+            // Recompensa: agrega los ingredientes ganados al inventario
+            if (recolector != null)
+            {
+                for (int i = 0; i < cantidadRecompensa1; i++)
+                    recolector.AgregarIngrediente(ingredienteRecompensa1);
+
+                for (int i = 0; i < cantidadRecompensa2; i++)
+                    recolector.AgregarIngrediente(ingredienteRecompensa2);
+
+                for (int i = 0; i < cantidadRecompensa3; i++)
+                    recolector.AgregarIngrediente(ingredienteRecompensa3);
+
+                Debug.Log("Recompensas obtenidas: " + cantidadRecompensa1 + " " + ingredienteRecompensa1 +
+                          ", " + cantidadRecompensa2 + " " + ingredienteRecompensa2 +
+                          ", " + cantidadRecompensa3 + " " + ingredienteRecompensa3);
+            }
+
+            MostrarPanelResultado(fraseVictoria, ObtenerTextoRecompensas(), true);
         }
         else
         {
             Debug.Log("Has sido derrotado...");
             if (caraMisu != null) caraMisu.sprite = caraMisuPerdiendo;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoGanando;
+
+            // Penalización: vacía todo el inventario
+            if (recolector != null)
+                recolector.slotsInventario.Clear();
+
+            MostrarPanelResultado(fraseDerrota, "Perdiste todos tus ingredientes.");
         }
+    }
+
+    private string ObtenerTextoRecompensas()
+    {
+        return "Obtuviste: " + cantidadRecompensa1 + " " + ingredienteRecompensa1 +
+               ", " + cantidadRecompensa2 + " " + ingredienteRecompensa2 +
+               ", " + cantidadRecompensa3 + " " + ingredienteRecompensa3;
+    }
+
+    private void MostrarPanelResultado(string frase, string recompensas = "", bool mostrarIconos = false)
+    {
+        if (panelBatalla != null) panelBatalla.SetActive(false);
+
+        if (panelResultado != null)
+        {
+            panelResultado.SetActive(true);
+
+            if (textoResultado != null)
+                textoResultado.text = frase;
+
+            if (textoRecompensas != null)
+                textoRecompensas.text = recompensas;
+
+            if (mostrarIconos && recolector != null)
+            {
+                if (iconoRecompensa1 != null)
+                {
+                    iconoRecompensa1.sprite = recolector.ObtenerIconoDe(ingredienteRecompensa1);
+                    iconoRecompensa1.gameObject.SetActive(iconoRecompensa1.sprite != null);
+                }
+                if (iconoRecompensa2 != null)
+                {
+                    iconoRecompensa2.sprite = recolector.ObtenerIconoDe(ingredienteRecompensa2);
+                    iconoRecompensa2.gameObject.SetActive(iconoRecompensa2.sprite != null);
+                }
+                if (iconoRecompensa3 != null)
+                {
+                    iconoRecompensa3.sprite = recolector.ObtenerIconoDe(ingredienteRecompensa3);
+                    iconoRecompensa3.gameObject.SetActive(iconoRecompensa3.sprite != null);
+                }
+            }
+            else
+            {
+                if (iconoRecompensa1 != null) iconoRecompensa1.gameObject.SetActive(false);
+                if (iconoRecompensa2 != null) iconoRecompensa2.gameObject.SetActive(false);
+                if (iconoRecompensa3 != null) iconoRecompensa3.gameObject.SetActive(false);
+            }
+
+            if (botonContinuar != null)
+            {
+                botonContinuar.onClick.RemoveAllListeners();
+                botonContinuar.onClick.AddListener(VolverAlMapa);
+            }
+        }
+    }
+
+    private void VolverAlMapa()
+    {
+        SceneManager.LoadScene(nombreEscenaMapa);
     }
 
     private IEnumerator TemblorDeCamara()
