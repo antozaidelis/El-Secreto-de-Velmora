@@ -6,7 +6,7 @@ public class HuronAI : MonoBehaviour
     public float velocidad = 3f;
     public float radioDeteccion = 5f;
     public float distanciaMaximaDeCasa = 8f;
-    public float margenFrenado = 0.5f; // Ajustado a 0.5 para un frenado más suave
+    public float margenFrenado = 0.5f;
 
     [Header("Referencias")]
     public Transform jugador;
@@ -56,13 +56,11 @@ public class HuronAI : MonoBehaviour
 
                 if (distanciaX > margenFrenado)
                 {
-                    // Activamos animación de caminata
                     if (animator != null) animator.SetBool("isWalking", true);
 
-                    Vector3 objetivoX = new Vector3(jugador.position.x, transform.position.y, transform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, objetivoX, velocidad * Time.deltaTime);
+                    Vector3 objectiveX = new Vector3(jugador.position.x, transform.position.y, transform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, objectiveX, velocidad * Time.deltaTime);
 
-                    // MIRADA CORREGIDA: Invierte true/false según hacia dónde camina de frente
                     if (jugador.position.x > transform.position.x)
                         spriteRenderer.flipX = false;
                     else
@@ -70,7 +68,6 @@ public class HuronAI : MonoBehaviour
                 }
                 else
                 {
-                    // Llegó al gato: se frena
                     if (animator != null) animator.SetBool("isWalking", false);
                 }
             }
@@ -84,7 +81,6 @@ public class HuronAI : MonoBehaviour
 
                 transform.position = Vector3.MoveTowards(transform.position, posicionInicial, velocidad * 0.7f * Time.deltaTime);
 
-                // MIRADA CORREGIDA AL VOLVER
                 if (posicionInicial.x > transform.position.x)
                     spriteRenderer.flipX = false;
                 else
@@ -92,9 +88,20 @@ public class HuronAI : MonoBehaviour
             }
             else
             {
-                // En casa quieto
                 if (animator != null) animator.SetBool("isWalking", false);
             }
+        }
+    }
+
+    // DETECCIÓN DEL CHOQUE E INICIO DE COMBATE
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("¡EL HURÓN TE ATRAPÓ! Intentando cargar sistema_combate...");
+
+            // Llama exactamente a la escena de tus compañeras
+            UnityEngine.SceneManagement.SceneManager.LoadScene("sistema_combate");
         }
     }
 
