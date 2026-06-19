@@ -16,24 +16,14 @@ public class SlotInventario
     }
 }
 
-// CAJA DE AHORRO INMORTAL EN MEMORIA (No se borra al cambiar de escena)
-public static class DatosInventarioCompartido
-{
-    public static List<SlotInventario> slotsGuardados = new List<SlotInventario>();
-}
-
 public class RecolectorIngredientes : MonoBehaviour
 {
     [Header("Configuración del Inventario")]
     public int capacityMaxima = 12;
     public int maximoPorSlot = 5;
 
-    // Vinculamos la lista local a la compartida en memoria estática
-    public List<SlotInventario> slotsInventario
-    {
-        get { return DatosInventarioCompartido.slotsGuardados; }
-        set { DatosInventarioCompartido.slotsGuardados = value; }
-    }
+    // Esta es la nueva mochila: una lista de slots, cada uno con ingrediente + cantidad
+    public List<SlotInventario> slotsInventario = new List<SlotInventario>();
 
     [Header("UI")]
     public InventarioUI inventarioUI;
@@ -44,13 +34,13 @@ public class RecolectorIngredientes : MonoBehaviour
 
     private Dictionary<string, Sprite> mapaIconos = new Dictionary<string, Sprite>();
 
-    void Start()
+    void Awake()
     {
-        // Forzamos a armar el mapa de iconos al arrancar
-        ArmarMapaDeIconos();
-
-        // Si entramos a la escena y ya había ingredientes guardados, los dibuja al iniciar
-        ActualizarUI();
+        for (int i = 0; i < nombresDeIconos.Count; i++)
+        {
+            if (i < iconosDisponibles.Count)
+                mapaIconos[nombresDeIconos[i]] = iconosDisponibles[i];
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -123,7 +113,8 @@ public class RecolectorIngredientes : MonoBehaviour
         return total;
     }
 
-    // Devuelve el sprite asociado a un nombre de ingrediente
+    // Devuelve el sprite asociado a un nombre de ingrediente (usado por el panel de selección en combate)
+    // Tolerante a diferencias de mayúsculas/minúsculas y espacios extra al inicio/final
     public Sprite ObtenerIconoDe(string nombreIngrediente)
     {
         if (string.IsNullOrEmpty(nombreIngrediente)) return null;
@@ -139,25 +130,10 @@ public class RecolectorIngredientes : MonoBehaviour
         return null;
     }
 
-    private void ArmarMapaDeIconos()
-    {
-        mapaIconos.Clear();
-        for (int i = 0; i < nombresDeIconos.Count; i++)
-        {
-            if (i < iconosDisponibles.Count)
-                mapaIconos[nombresDeIconos[i]] = iconosDisponibles[i];
-        }
-    }
-
     // ---------- UI ----------
 
     public void ActualizarUI()
     {
-        // SEGURIDAD: Re-armamos el diccionario para asegurar que lea los nombres actualizados del Inspector
-        ArmarMapaDeIconos();
-
-        if (inventarioUI == null) return;
-
         List<Sprite> iconos = new List<Sprite>();
         List<int> cantidades = new List<int>();
 
