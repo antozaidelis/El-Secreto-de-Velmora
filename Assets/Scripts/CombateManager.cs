@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 public class CombateManager : MonoBehaviour
@@ -77,10 +78,36 @@ public class CombateManager : MonoBehaviour
     [Header("Inventario (referencia)")]
     public RecolectorIngredientes recolector; // arrastrar el GameObject del jugador que tiene este script
 
-    [Header("UI - Barras de carga (opcional por ahora)")]
+    [Header("UI - Barras de carga (texto, opcional)")]
     public TextMeshProUGUI textoCargaSalteado;
     public TextMeshProUGUI textoCargaSopa;
     public TextMeshProUGUI textoCargaInfusion;
+
+    [Header("UI - Barras de carga (visual, FondoSalteadoPicante en mochila)")]
+    public Image barraLlenaSalteado;
+    public Image barraLlenaSopa;
+    public Image barraLlenaInfusion;
+
+    [Header("UI - Barras de carga (visual, copia en RecetasBatalla)")]
+    public Image barraLlenaSalteadoBatalla;
+    public Image barraLlenaSopaBatalla;
+    public Image barraLlenaInfusionBatalla;
+
+    [Header("UI - Tarjetas encendido/apagado (SeccionRecetas)")]
+    public Image fondoTarjetaSalteado;
+    public Image fondoTarjetaSopa;
+    public Image fondoTarjetaInfusion;
+    public Sprite spriteApagadoSalteado;
+    public Sprite spriteEncendidoSalteado;
+    public Sprite spriteApagadoSopa;
+    public Sprite spriteEncendidoSopa;
+    public Sprite spriteApagadoInfusion;
+    public Sprite spriteEncendidoInfusion;
+
+    [Header("UI - Tarjetas encendido/apagado (RecetasBatalla)")]
+    public Image fondoTarjetaSalteadoBatalla;
+    public Image fondoTarjetaSopaBatalla;
+    public Image fondoTarjetaInfusionBatalla;
 
     [Header("UI - Panel de selección de ingrediente")]
     public GameObject panelSeleccionIngrediente;
@@ -96,8 +123,22 @@ public class CombateManager : MonoBehaviour
 
     private string recetaSiendoCargada = ""; // "salteado", "sopa" o "infusion"
 
-    [Header("Configuración enemigo")]
-    public int danioAtaqueEnemigo = 10;
+    [Header("Configuración enemigo - Hurón del Pensamiento")]
+    public int danioMordida = 10;
+    [Range(0f, 1f)] public float reduccionPosturaDefensiva = 0.25f; // 25% menos daño recibido mientras dura
+    public int turnosDebilitamiento = 1;
+    [Range(0f, 1f)] public float bonusDanioDebilitado = 0.25f; // 25% más daño recibido mientras está debilitado
+
+    private bool enPosturaDefensiva = false;
+    private int turnosDebilitamientoRestantes = 0;
+
+    [Header("UI - Estado del enemigo (opcional)")]
+    public TextMeshProUGUI textoEstadoEnemigo;
+
+    [Header("Efecto de impacto (screen shake)")]
+    public Transform camaraCombate; // arrastrar la Main Camera de la escena de combate
+    public float duracionTemblor = 0.3f;
+    public float intensidadTemblor = 0.15f;
 
     private bool esTurnoJugador = true;
     private bool combateTerminado = false;
@@ -113,10 +154,6 @@ public class CombateManager : MonoBehaviour
         MostrarFraseActual();
 
         botonSkip.onClick.AddListener(AvanzarDialogo);
-
-        botonSalteadoPicante.onClick.AddListener(UsarSalteadoPicante);
-        botonSopaReconfortante.onClick.AddListener(UsarSopaReconfortante);
-        botonInfusionAmarga.onClick.AddListener(UsarInfusionAmarga);
 
         if (panelSeleccionIngrediente != null)
             panelSeleccionIngrediente.SetActive(false);
@@ -370,6 +407,7 @@ public class CombateManager : MonoBehaviour
                 break;
             case "sopa":
                 cargaSopaReconfortante = Mathf.Min(cargaSopaReconfortante + cantidad, cargaMaxima);
+                Debug.Log("SumarCarga SOPA: cantidad=" + cantidad + " | cargaSopaReconfortante ahora=" + cargaSopaReconfortante);
                 break;
             case "infusion":
                 cargaInfusionAmarga = Mathf.Min(cargaInfusionAmarga + cantidad, cargaMaxima);
@@ -386,6 +424,40 @@ public class CombateManager : MonoBehaviour
             textoCargaSopa.text = cargaSopaReconfortante.ToString("0.0") + "/" + cargaMaxima.ToString("0");
         if (textoCargaInfusion != null)
             textoCargaInfusion.text = cargaInfusionAmarga.ToString("0.0") + "/" + cargaMaxima.ToString("0");
+
+        // Actualiza las barras visuales (Fill Amount de 0 a 1)
+        float fillSalteado = cargaSalteadoPicante / cargaMaxima;
+        float fillSopa = cargaSopaReconfortante / cargaMaxima;
+        float fillInfusion = cargaInfusionAmarga / cargaMaxima;
+
+        if (barraLlenaSalteado != null) barraLlenaSalteado.fillAmount = fillSalteado;
+        if (barraLlenaSopa != null) barraLlenaSopa.fillAmount = fillSopa;
+        if (barraLlenaInfusion != null) barraLlenaInfusion.fillAmount = fillInfusion;
+
+        // Actualiza también la copia de batalla, si está asignada
+        if (barraLlenaSalteadoBatalla != null) barraLlenaSalteadoBatalla.fillAmount = fillSalteado;
+        if (barraLlenaSopaBatalla != null) barraLlenaSopaBatalla.fillAmount = fillSopa;
+        if (barraLlenaInfusionBatalla != null) barraLlenaInfusionBatalla.fillAmount = fillInfusion;
+
+        // Cambia el sprite de fondo entre "apagado" y "encendido" según si llegó a 0.5 de carga absoluta o más
+        float umbralEncendido = 0.5f;
+        ActualizarEncendidoTarjeta(fondoTarjetaSalteado, cargaSalteadoPicante, umbralEncendido, spriteApagadoSalteado, spriteEncendidoSalteado);
+        ActualizarEncendidoTarjeta(fondoTarjetaSopa, cargaSopaReconfortante, umbralEncendido, spriteApagadoSopa, spriteEncendidoSopa);
+        ActualizarEncendidoTarjeta(fondoTarjetaInfusion, cargaInfusionAmarga, umbralEncendido, spriteApagadoInfusion, spriteEncendidoInfusion);
+
+        ActualizarEncendidoTarjeta(fondoTarjetaSalteadoBatalla, cargaSalteadoPicante, umbralEncendido, spriteApagadoSalteado, spriteEncendidoSalteado);
+        ActualizarEncendidoTarjeta(fondoTarjetaSopaBatalla, cargaSopaReconfortante, umbralEncendido, spriteApagadoSopa, spriteEncendidoSopa);
+        ActualizarEncendidoTarjeta(fondoTarjetaInfusionBatalla, cargaInfusionAmarga, umbralEncendido, spriteApagadoInfusion, spriteEncendidoInfusion);
+    }
+
+    private void ActualizarEncendidoTarjeta(Image fondo, float cargaActual, float umbral, Sprite apagado, Sprite encendido)
+    {
+        if (fondo == null) return;
+
+        if (cargaActual >= umbral && encendido != null)
+            fondo.sprite = encendido;
+        else if (apagado != null)
+            fondo.sprite = apagado;
     }
 
     private bool PuedeJugar()
@@ -403,10 +475,39 @@ public class CombateManager : MonoBehaviour
 
     private void AplicarDanioAlEnemigo(int danio, string nombreReceta)
     {
-        vidaEnemigo -= danio;
+        float danioFinal = danio;
+
+        // Si el Hurón está en Postura Defensiva, recibe menos daño este turno
+        if (enPosturaDefensiva)
+        {
+            danioFinal *= (1f - reduccionPosturaDefensiva);
+            Debug.Log("El Hurón está en Postura Defensiva, recibe menos daño.");
+        }
+
+        // Si está debilitado (por Infusión Amarga), recibe más daño de cualquier receta
+        if (turnosDebilitamientoRestantes > 0)
+        {
+            danioFinal *= (1f + bonusDanioDebilitado);
+            Debug.Log("El Hurón está debilitado, recibe más daño.");
+        }
+
+        int danioRedondeado = Mathf.RoundToInt(danioFinal);
+
+        vidaEnemigo -= danioRedondeado;
         if (vidaEnemigo < 0) vidaEnemigo = 0;
 
-        Debug.Log("Usaste " + nombreReceta + ". Hiciste " + danio + " de daño.");
+        Debug.Log("Usaste " + nombreReceta + ". Hiciste " + danioRedondeado + " de daño.");
+
+        if (camaraCombate != null)
+            StartCoroutine(TemblorDeCamara());
+
+        // Si la receta usada es Infusión Amarga, aplica el debilitamiento
+        if (nombreReceta == "Infusión Amarga")
+        {
+            turnosDebilitamientoRestantes = turnosDebilitamiento;
+            Debug.Log("El Hurón queda debilitado por " + turnosDebilitamiento + " turno(s).");
+        }
+
         ActualizarUIVida();
         ActualizarCaraEnemigo();
 
@@ -429,10 +530,37 @@ public class CombateManager : MonoBehaviour
     {
         if (combateTerminado) return;
 
-        vidaJugador -= danioAtaqueEnemigo;
-        if (vidaJugador < 0) vidaJugador = 0;
+        // Antes de actuar, la postura defensiva del turno anterior ya no aplica
+        enPosturaDefensiva = false;
 
-        Debug.Log("El enemigo ataca. Te hizo " + danioAtaqueEnemigo + " de daño.");
+        // Elige aleatoriamente entre Mordida (0) y Postura Defensiva (1)
+        int accionElegida = Random.Range(0, 2);
+
+        if (accionElegida == 0)
+        {
+            // Mordida
+            vidaJugador -= danioMordida;
+            if (vidaJugador < 0) vidaJugador = 0;
+
+            Debug.Log("El Hurón usa Mordida. Te hizo " + danioMordida + " de daño.");
+            if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "¡Mordida!";
+
+            if (camaraCombate != null)
+                StartCoroutine(TemblorDeCamara());
+        }
+        else
+        {
+            // Postura Defensiva: no ataca este turno, pero se prepara para recibir menos daño
+            enPosturaDefensiva = true;
+
+            Debug.Log("El Hurón adopta una Postura Defensiva.");
+            if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "Postura Defensiva";
+        }
+
+        // Reduce los turnos de debilitamiento restantes (si los hay)
+        if (turnosDebilitamientoRestantes > 0)
+            turnosDebilitamientoRestantes--;
+
         ActualizarUIVida();
         ActualizarCaraMisu();
         ActualizarCaraEnemigo();
@@ -500,5 +628,24 @@ public class CombateManager : MonoBehaviour
             if (caraMisu != null) caraMisu.sprite = caraMisuPerdiendo;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoGanando;
         }
+    }
+
+    private IEnumerator TemblorDeCamara()
+    {
+        Vector3 posicionOriginal = camaraCombate.localPosition;
+        float tiempoTranscurrido = 0f;
+
+        while (tiempoTranscurrido < duracionTemblor)
+        {
+            float offsetX = Random.Range(-1f, 1f) * intensidadTemblor;
+            float offsetY = Random.Range(-1f, 1f) * intensidadTemblor;
+
+            camaraCombate.localPosition = posicionOriginal + new Vector3(offsetX, offsetY, 0f);
+
+            tiempoTranscurrido += Time.deltaTime;
+            yield return null;
+        }
+
+        camaraCombate.localPosition = posicionOriginal;
     }
 }
