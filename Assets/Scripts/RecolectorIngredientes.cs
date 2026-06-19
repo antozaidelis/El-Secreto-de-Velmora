@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-// Representa un slot del inventario: qué ingrediente tiene y cuántos
 [System.Serializable]
 public class SlotInventario
 {
@@ -16,14 +15,24 @@ public class SlotInventario
     }
 }
 
+// CAJA DE AHORRO EN MEMORIA (Sobrevive al cambio de escena)
+public static class DatosInventarioCompartido
+{
+    public static List<SlotInventario> slotsGuardados = new List<SlotInventario>();
+}
+
 public class RecolectorIngredientes : MonoBehaviour
 {
     [Header("Configuración del Inventario")]
     public int capacityMaxima = 12;
     public int maximoPorSlot = 5;
 
-    // Esta es la nueva mochila: una lista de slots, cada uno con ingrediente + cantidad
-    public List<SlotInventario> slotsInventario = new List<SlotInventario>();
+    // Vincula tu mochila a la memoria estática
+    public List<SlotInventario> slotsInventario
+    {
+        get { return DatosInventarioCompartido.slotsGuardados; }
+        set { DatosInventarioCompartido.slotsGuardados = value; }
+    }
 
     [Header("UI")]
     public InventarioUI inventarioUI;
@@ -34,13 +43,10 @@ public class RecolectorIngredientes : MonoBehaviour
 
     private Dictionary<string, Sprite> mapaIconos = new Dictionary<string, Sprite>();
 
-    void Awake()
+    void Start()
     {
-        for (int i = 0; i < nombresDeIconos.Count; i++)
-        {
-            if (i < iconosDisponibles.Count)
-                mapaIconos[nombresDeIconos[i]] = iconosDisponibles[i];
-        }
+        ArmarMapaDeIconos();
+        ActualizarUI();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,36 +59,28 @@ public class RecolectorIngredientes : MonoBehaviour
         }
     }
 
-    // ---------- LÓGICA DE STACK ----------
-
     public bool AgregarIngrediente(string nombreIngrediente)
     {
-        // 1. Buscar si ya hay un slot con este ingrediente que NO esté lleno
         foreach (SlotInventario slot in slotsInventario)
         {
             if (slot.nombreIngrediente == nombreIngrediente && slot.cantidad < maximoPorSlot)
             {
                 slot.cantidad++;
-                Debug.Log("Sumaste " + nombreIngrediente + ". Ahora tenés " + slot.cantidad + " en ese slot.");
                 ActualizarUI();
                 return true;
             }
         }
 
-        // 2. Si no hay slot disponible para ese ingrediente, abrir uno nuevo (si hay espacio)
         if (slotsInventario.Count < capacityMaxima)
         {
             slotsInventario.Add(new SlotInventario(nombreIngrediente, 1));
-            Debug.Log("Nuevo slot abierto para " + nombreIngrediente);
             ActualizarUI();
             return true;
         }
 
-        Debug.Log("¡Mochila llena! No se puede agregar " + nombreIngrediente);
         return false;
     }
 
-    // Gasta 1 unidad de un ingrediente específico. Devuelve true si pudo gastarlo.
     public bool GastarIngrediente(string nombreIngrediente)
     {
         foreach (SlotInventario slot in slotsInventario)
@@ -90,10 +88,8 @@ public class RecolectorIngredientes : MonoBehaviour
             if (slot.nombreIngrediente == nombreIngrediente && slot.cantidad > 0)
             {
                 slot.cantidad--;
-
                 if (slot.cantidad <= 0)
                     slotsInventario.Remove(slot);
-
                 ActualizarUI();
                 return true;
             }
@@ -101,7 +97,6 @@ public class RecolectorIngredientes : MonoBehaviour
         return false;
     }
 
-    // Cuenta cuántas unidades totales hay de un ingrediente (sumando todos sus slots)
     public int ContarIngrediente(string nombreIngrediente)
     {
         int total = 0;
@@ -113,12 +108,9 @@ public class RecolectorIngredientes : MonoBehaviour
         return total;
     }
 
-    // Devuelve el sprite asociado a un nombre de ingrediente (usado por el panel de selección en combate)
-    // Tolerante a diferencias de mayúsculas/minúsculas y espacios extra al inicio/final
     public Sprite ObtenerIconoDe(string nombreIngrediente)
     {
         if (string.IsNullOrEmpty(nombreIngrediente)) return null;
-
         string buscado = nombreIngrediente.Trim().ToLower();
 
         foreach (var par in mapaIconos)
@@ -126,14 +118,25 @@ public class RecolectorIngredientes : MonoBehaviour
             if (par.Key.Trim().ToLower() == buscado)
                 return par.Value;
         }
-
         return null;
     }
 
-    // ---------- UI ----------
+    public void ArmarMapaDeIconos()
+    {
+        mapaIconos.Clear();
+        for (int i = 0; i < nombresDeIconos.Count; i++)
+        {
+            if (i < iconosDisponibles.Count)
+                mapaIconos[nombresDeIconos[i]] = iconosDisponibles[i];
+        }
+    }
 
     public void ActualizarUI()
     {
+        ArmarMapaDeIconos();
+
+        if (inventarioUI == null) return;
+
         List<Sprite> iconos = new List<Sprite>();
         List<int> cantidades = new List<int>();
 

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class InventarioUI : MonoBehaviour
 {
-
     [Header("Referencias")]
     public GameObject panelMochila;
     public List<Image> slots;
@@ -22,23 +21,15 @@ public class InventarioUI : MonoBehaviour
         if (seccionRecetas != null)
             seccionRecetas.SetActive(false);
 
-        // Iniciamos la corrutina para esperar un instante antes de dibujar
-        StartCoroutine(EsperarYActualizarUI());
-    }
-
-    // Esto obliga a Unity a esperar a que la escena se asiente antes de buscar las imágenes
-    System.Collections.IEnumerator EsperarYActualizarUI()
-    {
-        // Espera el final del frame actual para que todo en la escena ya exista
-        yield return new WaitForEndOfFrame();
-
+        // Busca al recolector de la escena actual y fuerza el dibujado directo
         RecolectorIngredientes recolectorActual = FindFirstObjectByType<RecolectorIngredientes>();
         if (recolectorActual != null)
         {
             recolectorActual.inventarioUI = this;
-            recolectorActual.ActualizarUI(); // Ahora sí, dibuja con las imágenes listas
+            recolectorActual.ActualizarUI();
         }
     }
+
     public void ToggleMochila()
     {
         mochilaAbierta = !mochilaAbierta;
@@ -83,5 +74,4 @@ public class InventarioUI : MonoBehaviour
             }
         }
     }
-
 }
