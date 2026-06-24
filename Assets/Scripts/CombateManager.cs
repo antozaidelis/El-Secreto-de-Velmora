@@ -24,7 +24,7 @@ public class CombateManager : MonoBehaviour
         "No eres el primero que viene a probar suerte aquí.",
         "Veamos si tus recetas son tan buenas como dicen."
     };
-    public Sprite[] expresionesPorFrase; // mismo orden y cantidad que frasesEnemigo
+    public Sprite[] expresionesPorFrase;
     private int indiceFraseActual = 0;
 
     [Header("Frases durante la batalla (globo de diálogo)")]
@@ -74,7 +74,7 @@ public class CombateManager : MonoBehaviour
     [Header("Configuración de recetas")]
     public int danioSalteadoPicante = 15;
     public int danioSalteadoPicanteMax = 30;
-    public int curacionSopaReconfortante = 0; // se calcula según carga, ver lógica abajo
+    public int curacionSopaReconfortante = 0;
     public int curacionSopaReconfortanteMax = 40;
     public int danioInfusionAmarga = 5;
     public int danioInfusionAmargaMax = 10;
@@ -89,12 +89,7 @@ public class CombateManager : MonoBehaviour
     private float cargaSopaReconfortante = 0f;
     private float cargaInfusionAmarga = 0f;
 
-    // Cuánta carga otorga cada cantidad de ingredientes gastados (de a 1)
-    // 1 ingrediente = 10%, 2 = 50%, 3 = 100% de UNA barrita
     private float[] tablaCargaPorCantidad = new float[] { 0f, 0.1f, 0.5f, 1.0f };
-
-    [Header("Inventario (referencia)")]
-    public RecolectorIngredientes recolector; // arrastrar el GameObject del jugador que tiene este script
 
     [Header("UI - Barras de carga (texto, opcional)")]
     public TextMeshProUGUI textoCargaSalteado;
@@ -130,22 +125,21 @@ public class CombateManager : MonoBehaviour
     [Header("UI - Panel de selección de ingrediente")]
     public GameObject panelSeleccionIngrediente;
     public TextMeshProUGUI textoDescripcionReceta;
-    public List<Button> botonesIngredientesInventario; // mismo orden que los slots del inventario
+    public List<Button> botonesIngredientesInventario;
     public List<Image> iconosIngredientesInventario;
     public List<TextMeshProUGUI> cantidadesIngredientesInventario;
 
-    // Descripciones cortas, dan la pista sin decir el nombre del ingrediente
     [TextArea] public string descripcionSalteadoPicante = "Un plato que arde con fuerza... necesita algo picante para tomar forma.";
     [TextArea] public string descripcionSopaReconfortante = "Un caldo suave y calmo... algo del bosque, tranquilo, lo haría perfecto.";
     [TextArea] public string descripcionInfusionAmarga = "Un brebaje de sabor extraño... algo terroso y amargo le daría su efecto.";
 
-    private string recetaSiendoCargada = ""; // "salteado", "sopa" o "infusion"
+    private string recetaSiendoCargada = "";
 
     [Header("Configuración enemigo - Hurón del Pensamiento")]
     public int danioMordida = 10;
-    [Range(0f, 1f)] public float reduccionPosturaDefensiva = 0.25f; // 25% menos daño recibido mientras dura
+    [Range(0f, 1f)] public float reduccionPosturaDefensiva = 0.25f;
     public int turnosDebilitamiento = 1;
-    [Range(0f, 1f)] public float bonusDanioDebilitado = 0.25f; // 25% más daño recibido mientras está debilitado
+    [Range(0f, 1f)] public float bonusDanioDebilitado = 0.25f;
 
     private bool enPosturaDefensiva = false;
     private int turnosDebilitamientoRestantes = 0;
@@ -154,7 +148,7 @@ public class CombateManager : MonoBehaviour
     public TextMeshProUGUI textoEstadoEnemigo;
 
     [Header("Efecto de impacto (screen shake)")]
-    public Transform camaraCombate; // arrastrar la Main Camera de la escena de combate
+    public Transform camaraCombate;
     public float duracionTemblor = 0.3f;
     public float intensidadTemblor = 0.15f;
 
@@ -183,7 +177,6 @@ public class CombateManager : MonoBehaviour
 
     void Start()
     {
-        // Arranca mostrando el diálogo, batalla oculta
         panelDialogo.SetActive(true);
         panelBatalla.SetActive(false);
 
@@ -201,8 +194,6 @@ public class CombateManager : MonoBehaviour
 
         ActualizarTextosCarga();
     }
-
-    // ---------- DIÁLOGO ----------
 
     private void MostrarFraseActual()
     {
@@ -241,8 +232,6 @@ public class CombateManager : MonoBehaviour
         }
     }
 
-    // ---------- TRANSICIÓN DIÁLOGO → BATALLA ----------
-
     public void IniciarBatalla()
     {
         panelDialogo.SetActive(false);
@@ -263,12 +252,9 @@ public class CombateManager : MonoBehaviour
         ActualizarCaraEnemigo();
     }
 
-    // ---------- RECETAS: USAR ----------
-
     public void UsarSalteadoPicante()
     {
         if (!PuedeJugar()) return;
-
         if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
         if (cargaSalteadoPicante <= 0f)
@@ -287,7 +273,6 @@ public class CombateManager : MonoBehaviour
     public void UsarSopaReconfortante()
     {
         if (!PuedeJugar()) return;
-
         if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
         if (cargaSopaReconfortante <= 0f)
@@ -301,7 +286,6 @@ public class CombateManager : MonoBehaviour
         vidaJugador += curacion;
         if (vidaJugador > vidaJugadorMax) vidaJugador = vidaJugadorMax;
 
-        Debug.Log("Usaste Sopa Reconfortante. Te curaste " + curacion + " HP.");
         ActualizarUIVida();
         ActualizarCaraMisu();
         ActualizarCaraEnemigo();
@@ -315,7 +299,6 @@ public class CombateManager : MonoBehaviour
     public void UsarInfusionAmarga()
     {
         if (!PuedeJugar()) return;
-
         if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
         if (cargaInfusionAmarga <= 0f)
@@ -331,7 +314,6 @@ public class CombateManager : MonoBehaviour
         ActualizarTextosCarga();
     }
 
-    // Interpola linealmente entre el valor mínimo (carga ~0) y máximo (carga llena)
     private int CalcularEfectoEscalado(int valorMinimo, int valorMaximo, float cargaActual)
     {
         float porcentaje = Mathf.Clamp01(cargaActual / cargaMaxima);
@@ -339,9 +321,6 @@ public class CombateManager : MonoBehaviour
         return resultado;
     }
 
-    // ---------- RECETAS: ABRIR PANEL DE CARGA ----------
-
-    // Estos van conectados a los botones "+" de cada receta
     public void AbrirCargaSalteadoPicante()
     {
         if (!PuedeAbrirCarga()) return;
@@ -366,38 +345,36 @@ public class CombateManager : MonoBehaviour
         MostrarPanelSeleccionIngrediente();
     }
 
-    // Fuera de combate (esTurnoJugador y combateTerminado no aplican) siempre se puede cargar.
-    // Dentro de combate, solo si es el turno del jugador y el combate no terminó.
     private bool PuedeAbrirCarga()
     {
         if (panelBatalla != null && panelBatalla.activeSelf)
             return PuedeJugar();
 
-        return true; // fuera de combate, siempre se puede intentar cargar
+        return true;
     }
 
     private void MostrarPanelSeleccionIngrediente()
     {
-        if (panelSeleccionIngrediente == null || recolector == null) return;
+        if (panelSeleccionIngrediente == null || GameManager.Instancia == null) return;
 
         panelSeleccionIngrediente.SetActive(true);
 
-        // Recorremos los slots actuales del inventario y los mostramos en el panel de selección
+        List<SlotInventario> slots = GameManager.Instancia.slotsInventario;
+
         for (int i = 0; i < botonesIngredientesInventario.Count; i++)
         {
-            if (i < recolector.slotsInventario.Count)
+            if (i < slots.Count)
             {
-                SlotInventario slot = recolector.slotsInventario[i];
+                SlotInventario slot = slots[i];
 
                 botonesIngredientesInventario[i].gameObject.SetActive(true);
 
                 if (i < iconosIngredientesInventario.Count)
-                    iconosIngredientesInventario[i].sprite = recolector.ObtenerIconoDe(slot.nombreIngrediente);
+                    iconosIngredientesInventario[i].sprite = GameManager.Instancia.ObtenerIconoDe(slot.nombreIngrediente);
 
                 if (i < cantidadesIngredientesInventario.Count)
                     cantidadesIngredientesInventario[i].text = "x" + slot.cantidad;
 
-                // Guardamos qué ingrediente representa este botón, para usarlo al hacer click
                 string nombreIngrediente = slot.nombreIngrediente;
                 botonesIngredientesInventario[i].onClick.RemoveAllListeners();
                 botonesIngredientesInventario[i].onClick.AddListener(() => ElegirIngredienteParaCarga(nombreIngrediente));
@@ -416,31 +393,24 @@ public class CombateManager : MonoBehaviour
         string ingredienteCorrecto = ObtenerIngredienteDeReceta(recetaSiendoCargada);
         bool esCorrecto = (nombreIngredienteElegido == ingredienteCorrecto);
 
-        int cantidadDisponible = recolector.ContarIngrediente(nombreIngredienteElegido);
+        int cantidadDisponible = GameManager.Instancia.ContarIngrediente(nombreIngredienteElegido);
         int cantidadAGastar = Mathf.Min(3, cantidadDisponible);
 
         for (int i = 0; i < cantidadAGastar; i++)
-            recolector.GastarIngrediente(nombreIngredienteElegido);
+            GameManager.Instancia.GastarIngrediente(nombreIngredienteElegido);
 
         if (esCorrecto)
         {
             float cargaGanada = tablaCargaPorCantidad[cantidadAGastar];
             SumarCarga(recetaSiendoCargada, cargaGanada);
 
-            Debug.Log("¡Acertaste! Cargaste " + (cargaGanada * 100f) + "% de una barrita con " + cantidadAGastar + " ingrediente(s).");
-
-            // Si estamos en combate: no recibe daño este turno, pero pasa el turno igual (sin ataque enemigo)
             if (panelBatalla != null && panelBatalla.activeSelf)
             {
-                esTurnoJugador = false;
-                esTurnoJugador = true; // no ataca el enemigo, vuelve a ser turno del jugador directamente
+                esTurnoJugador = true;
             }
         }
         else
         {
-            Debug.Log("Elegiste mal. Perdiste " + cantidadAGastar + " de ese ingrediente.");
-
-            // Si estamos en combate: pierde el turno Y el enemigo ataca
             if (panelBatalla != null && panelBatalla.activeSelf)
             {
                 PasarTurnoEnemigo();
@@ -470,7 +440,6 @@ public class CombateManager : MonoBehaviour
                 break;
             case "sopa":
                 cargaSopaReconfortante = Mathf.Min(cargaSopaReconfortante + cantidad, cargaMaxima);
-                Debug.Log("SumarCarga SOPA: cantidad=" + cantidad + " | cargaSopaReconfortante ahora=" + cargaSopaReconfortante);
                 break;
             case "infusion":
                 cargaInfusionAmarga = Mathf.Min(cargaInfusionAmarga + cantidad, cargaMaxima);
@@ -488,7 +457,6 @@ public class CombateManager : MonoBehaviour
         if (textoCargaInfusion != null)
             textoCargaInfusion.text = cargaInfusionAmarga.ToString("0.0") + "/" + cargaMaxima.ToString("0");
 
-        // Actualiza las barras visuales (Fill Amount de 0 a 1)
         float fillSalteado = cargaSalteadoPicante / cargaMaxima;
         float fillSopa = cargaSopaReconfortante / cargaMaxima;
         float fillInfusion = cargaInfusionAmarga / cargaMaxima;
@@ -497,12 +465,10 @@ public class CombateManager : MonoBehaviour
         if (barraLlenaSopa != null) barraLlenaSopa.fillAmount = fillSopa;
         if (barraLlenaInfusion != null) barraLlenaInfusion.fillAmount = fillInfusion;
 
-        // Actualiza también la copia de batalla, si está asignada
         if (barraLlenaSalteadoBatalla != null) barraLlenaSalteadoBatalla.fillAmount = fillSalteado;
         if (barraLlenaSopaBatalla != null) barraLlenaSopaBatalla.fillAmount = fillSopa;
         if (barraLlenaInfusionBatalla != null) barraLlenaInfusionBatalla.fillAmount = fillInfusion;
 
-        // Cambia el sprite de fondo entre "apagado" y "encendido" según si llegó a 0.5 de carga absoluta o más
         float umbralEncendido = 0.5f;
         ActualizarEncendidoTarjeta(fondoTarjetaSalteado, cargaSalteadoPicante, umbralEncendido, spriteApagadoSalteado, spriteEncendidoSalteado);
         ActualizarEncendidoTarjeta(fondoTarjetaSopa, cargaSopaReconfortante, umbralEncendido, spriteApagadoSopa, spriteEncendidoSopa);
@@ -540,18 +506,14 @@ public class CombateManager : MonoBehaviour
     {
         float danioFinal = danio;
 
-        // Si el Hurón está en Postura Defensiva, recibe menos daño este turno
         if (enPosturaDefensiva)
         {
             danioFinal *= (1f - reduccionPosturaDefensiva);
-            Debug.Log("El Hurón está en Postura Defensiva, recibe menos daño.");
         }
 
-        // Si está debilitado (por Infusión Amarga), recibe más daño de cualquier receta
         if (turnosDebilitamientoRestantes > 0)
         {
             danioFinal *= (1f + bonusDanioDebilitado);
-            Debug.Log("El Hurón está debilitado, recibe más daño.");
         }
 
         int danioRedondeado = Mathf.RoundToInt(danioFinal);
@@ -559,16 +521,12 @@ public class CombateManager : MonoBehaviour
         vidaEnemigo -= danioRedondeado;
         if (vidaEnemigo < 0) vidaEnemigo = 0;
 
-        Debug.Log("Usaste " + nombreReceta + ". Hiciste " + danioRedondeado + " de daño.");
-
         if (camaraCombate != null)
             StartCoroutine(TemblorDeCamara());
 
-        // Si la receta usada es Infusión Amarga, aplica el debilitamiento
         if (nombreReceta == "Infusión Amarga")
         {
             turnosDebilitamientoRestantes = turnosDebilitamiento;
-            Debug.Log("El Hurón queda debilitado por " + turnosDebilitamiento + " turno(s).");
         }
 
         ActualizarUIVida();
@@ -593,10 +551,8 @@ public class CombateManager : MonoBehaviour
     {
         if (combateTerminado) return;
 
-        // Antes de actuar, la postura defensiva del turno anterior ya no aplica
         enPosturaDefensiva = false;
 
-        // Chequea si corresponde mostrar una frase de batalla este turno
         turnosHastaProximaFrase--;
         if (turnosHastaProximaFrase <= 0)
         {
@@ -604,16 +560,13 @@ public class CombateManager : MonoBehaviour
             turnosHastaProximaFrase = Random.Range(turnosMinimoEntreFrases, turnosMaximoEntreFrases + 1);
         }
 
-        // Elige aleatoriamente entre Mordida (0) y Postura Defensiva (1)
         int accionElegida = Random.Range(0, 2);
 
         if (accionElegida == 0)
         {
-            // Mordida
             vidaJugador -= danioMordida;
             if (vidaJugador < 0) vidaJugador = 0;
 
-            Debug.Log("El Hurón usa Mordida. Te hizo " + danioMordida + " de daño.");
             if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "¡Mordida!";
 
             if (camaraCombate != null)
@@ -621,14 +574,10 @@ public class CombateManager : MonoBehaviour
         }
         else
         {
-            // Postura Defensiva: no ataca este turno, pero se prepara para recibir menos daño
             enPosturaDefensiva = true;
-
-            Debug.Log("El Hurón adopta una Postura Defensiva.");
             if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "Postura Defensiva";
         }
 
-        // Reduce los turnos de debilitamiento restantes (si los hay)
         if (turnosDebilitamientoRestantes > 0)
             turnosDebilitamientoRestantes--;
 
@@ -644,8 +593,6 @@ public class CombateManager : MonoBehaviour
 
         esTurnoJugador = true;
     }
-
-    // ---------- UI ----------
 
     private void ActualizarUIVida()
     {
@@ -676,9 +623,9 @@ public class CombateManager : MonoBehaviour
         float porcentajeVidaEnemigo = (float)vidaEnemigo / vidaEnemigoMax;
 
         if (porcentajeVidaEnemigo <= 0.3f)
-            caraEnemigoBatalla.sprite = caraEnemigoPerdiendo; // el enemigo está mal
+            caraEnemigoBatalla.sprite = caraEnemigoPerdiendo;
         else if (porcentajeVida < porcentajeVidaEnemigo)
-            caraEnemigoBatalla.sprite = caraEnemigoGanando; // el enemigo va ganando
+            caraEnemigoBatalla.sprite = caraEnemigoGanando;
         else
             caraEnemigoBatalla.sprite = caraEnemigoNormal;
     }
@@ -689,38 +636,30 @@ public class CombateManager : MonoBehaviour
 
         if (ganoJugador)
         {
-            Debug.Log("¡Ganaste el combate!");
             if (caraMisu != null) caraMisu.sprite = caraMisuGanando;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoPerdiendo;
 
-            // Recompensa: agrega los ingredientes ganados al inventario
-            if (recolector != null)
+            if (GameManager.Instancia != null)
             {
                 for (int i = 0; i < cantidadRecompensa1; i++)
-                    recolector.AgregarIngrediente(ingredienteRecompensa1);
+                    GameManager.Instancia.AgregarIngrediente(ingredienteRecompensa1);
 
                 for (int i = 0; i < cantidadRecompensa2; i++)
-                    recolector.AgregarIngrediente(ingredienteRecompensa2);
+                    GameManager.Instancia.AgregarIngrediente(ingredienteRecompensa2);
 
                 for (int i = 0; i < cantidadRecompensa3; i++)
-                    recolector.AgregarIngrediente(ingredienteRecompensa3);
-
-                Debug.Log("Recompensas obtenidas: " + cantidadRecompensa1 + " " + ingredienteRecompensa1 +
-                          ", " + cantidadRecompensa2 + " " + ingredienteRecompensa2 +
-                          ", " + cantidadRecompensa3 + " " + ingredienteRecompensa3);
+                    GameManager.Instancia.AgregarIngrediente(ingredienteRecompensa3);
             }
 
             MostrarPanelResultado(fraseVictoria, ObtenerTextoRecompensas(), true);
         }
         else
         {
-            Debug.Log("Has sido derrotado...");
             if (caraMisu != null) caraMisu.sprite = caraMisuPerdiendo;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoGanando;
 
-            // Penalización: vacía todo el inventario
-            if (recolector != null)
-                recolector.slotsInventario.Clear();
+            if (GameManager.Instancia != null)
+                GameManager.Instancia.VaciarInventario();
 
             MostrarPanelResultado(fraseDerrota, "Perdiste todos tus ingredientes.");
         }
@@ -747,21 +686,21 @@ public class CombateManager : MonoBehaviour
             if (textoRecompensas != null)
                 textoRecompensas.text = recompensas;
 
-            if (mostrarIconos && recolector != null)
+            if (mostrarIconos && GameManager.Instancia != null)
             {
                 if (iconoRecompensa1 != null)
                 {
-                    iconoRecompensa1.sprite = recolector.ObtenerIconoDe(ingredienteRecompensa1);
+                    iconoRecompensa1.sprite = GameManager.Instancia.ObtenerIconoDe(ingredienteRecompensa1);
                     iconoRecompensa1.gameObject.SetActive(iconoRecompensa1.sprite != null);
                 }
                 if (iconoRecompensa2 != null)
                 {
-                    iconoRecompensa2.sprite = recolector.ObtenerIconoDe(ingredienteRecompensa2);
+                    iconoRecompensa2.sprite = GameManager.Instancia.ObtenerIconoDe(ingredienteRecompensa2);
                     iconoRecompensa2.gameObject.SetActive(iconoRecompensa2.sprite != null);
                 }
                 if (iconoRecompensa3 != null)
                 {
-                    iconoRecompensa3.sprite = recolector.ObtenerIconoDe(ingredienteRecompensa3);
+                    iconoRecompensa3.sprite = GameManager.Instancia.ObtenerIconoDe(ingredienteRecompensa3);
                     iconoRecompensa3.gameObject.SetActive(iconoRecompensa3.sprite != null);
                 }
             }

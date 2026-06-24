@@ -4040,12 +4040,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883279570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.25, y: 3.93, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.03133, y: 6.9440804, z: 0}
   m_LocalScale: {x: 0.36, y: 0.36, z: 0.36}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1361536273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895691021
 GameObject:
@@ -4468,7 +4468,7 @@ Transform:
   m_GameObject: {fileID: 989422491}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.58, y: 2.3622, z: -12.2}
+  m_LocalPosition: {x: -5.79, y: 2.3622, z: -12.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5985,6 +5985,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1f1d3821e3ff04c91802e50699f8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  capacidadMaxima: 12
+  maximoPorSlot: 5
+  iconosDisponibles:
+  - {fileID: -7306020246808559303, guid: 88e90b0bb3df0c347a922877fda67d8c, type: 3}
+  - {fileID: 2674074737586945478, guid: 4d571568f00000845918b93f0d7c3a00, type: 3}
+  - {fileID: -2336582280977213772, guid: d6ece53af7168ee4bb8a94ea211642d2, type: 3}
+  nombresDeIconos:
+  - pimiento_0
+  - hierba Serena
+  - hongo amargo
+  slotsInventario: []
 --- !u!4 &1361536273
 Transform:
   m_ObjectHideFlags: 0
@@ -5997,7 +6008,8 @@ Transform:
   m_LocalPosition: {x: -28.28133, y: -3.01408, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 883279573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1371002183
@@ -7076,7 +7088,7 @@ Transform:
   m_GameObject: {fileID: 1474582756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.58, y: 2.3622, z: -12.2}
+  m_LocalPosition: {x: -5.79, y: 2.3622, z: -12.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10073,7 +10085,7 @@ Transform:
   m_GameObject: {fileID: 1978093636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.58, y: -0.085, z: 0}
+  m_LocalPosition: {x: -5.79, y: -0.085, z: 0}
   m_LocalScale: {x: 0.29329747, y: 0.29329747, z: 0.29329747}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10091,17 +10103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabaed0eeb0077147a88d0e1d1dc15b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventario
-  capacityMaxima: 12
-  maximoPorSlot: 5
-  inventarioUI: {fileID: 1925821684}
-  iconosDisponibles:
-  - {fileID: -7306020246808559303, guid: 88e90b0bb3df0c347a922877fda67d8c, type: 3}
-  - {fileID: 2674074737586945478, guid: 4d571568f00000845918b93f0d7c3a00, type: 3}
-  - {fileID: -2336582280977213772, guid: d6ece53af7168ee4bb8a94ea211642d2, type: 3}
-  nombresDeIconos:
-  - pimiento_0
-  - hierba Serena
-  - hongo amargo
 --- !u!114 &1978093645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10664,10 +10665,10 @@ SceneRoots:
   - {fileID: 607205314}
   - {fileID: 869952867}
   - {fileID: 1918810049}
-  - {fileID: 883279573}
   - {fileID: 954384372}
   - {fileID: 1865188001}
   - {fileID: 1978093642}
+  - {fileID: 1361536273}
   - {fileID: 877546177}
   - {fileID: 59365964}
   - {fileID: 605723048}
@@ -10711,4 +10712,3 @@ SceneRoots:
   - {fileID: 718364275}
   - {fileID: 1709340953}
   - {fileID: 691149525}
-  - {fileID: 1361536273}

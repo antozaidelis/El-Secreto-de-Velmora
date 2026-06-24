@@ -21,13 +21,19 @@ public class InventarioUI : MonoBehaviour
         if (seccionRecetas != null)
             seccionRecetas.SetActive(false);
 
-        // Busca al recolector de la escena actual y fuerza el dibujado directo
-        RecolectorIngredientes recolectorActual = FindFirstObjectByType<RecolectorIngredientes>();
-        if (recolectorActual != null)
-        {
-            recolectorActual.inventarioUI = this;
-            recolectorActual.ActualizarUI();
-        }
+        ActualizarUI();
+    }
+
+    void OnEnable()
+    {
+        if (GameManager.Instancia != null)
+            GameManager.Instancia.OnInventarioCambiado += ActualizarUI;
+    }
+
+    void OnDisable()
+    {
+        if (GameManager.Instancia != null)
+            GameManager.Instancia.OnInventarioCambiado -= ActualizarUI;
     }
 
     public void ToggleMochila()
@@ -42,20 +48,25 @@ public class InventarioUI : MonoBehaviour
         seccionRecetas.SetActive(recetasAbiertas);
     }
 
-    public void ActualizarUI(List<Sprite> iconos, List<int> cantidades)
+    public void ActualizarUI()
     {
+        if (GameManager.Instancia == null) return;
+
+        List<SlotInventario> datos = GameManager.Instancia.slotsInventario;
+
         for (int i = 0; i < slots.Count; i++)
         {
-            if (i < iconos.Count)
+            if (i < datos.Count)
             {
-                slots[i].sprite = iconos[i];
-                slots[i].color = Color.white;
+                Sprite icono = GameManager.Instancia.ObtenerIconoDe(datos[i].nombreIngrediente);
+                slots[i].sprite = icono;
+                slots[i].color = icono != null ? Color.white : new Color(1, 1, 1, 0.2f);
 
                 if (i < textosCantidad.Count && textosCantidad[i] != null)
                 {
-                    if (cantidades[i] > 1)
+                    if (datos[i].cantidad > 1)
                     {
-                        textosCantidad[i].text = "x" + cantidades[i];
+                        textosCantidad[i].text = "x" + datos[i].cantidad;
                         textosCantidad[i].gameObject.SetActive(true);
                     }
                     else
@@ -68,7 +79,6 @@ public class InventarioUI : MonoBehaviour
             {
                 slots[i].sprite = null;
                 slots[i].color = new Color(1, 1, 1, 0.2f);
-
                 if (i < textosCantidad.Count && textosCantidad[i] != null)
                     textosCantidad[i].gameObject.SetActive(false);
             }
