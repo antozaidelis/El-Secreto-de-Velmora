@@ -2,19 +2,6 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class SlotInventario
-{
-    public string nombreIngrediente;
-    public int cantidad;
-
-    public SlotInventario(string nombre, int cant)
-    {
-        nombreIngrediente = nombre;
-        cantidad = cant;
-    }
-}
-
 // CAJA DE AHORRO EN MEMORIA (Sobrevive al cambio de escena)
 public static class DatosInventarioCompartido
 {
