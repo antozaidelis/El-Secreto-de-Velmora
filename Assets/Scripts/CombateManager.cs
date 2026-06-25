@@ -71,6 +71,9 @@ public class CombateManager : MonoBehaviour
     public Button botonSopaReconfortante;
     public Button botonInfusionAmarga;
 
+    [Header("Ataque Básico")]
+    public int danioAtaqueBasico = 8;
+
     [Header("Configuración de recetas")]
     public int danioSalteadoPicante = 15;
     public int danioSalteadoPicanteMax = 30;
@@ -260,6 +263,14 @@ public class CombateManager : MonoBehaviour
         ActualizarCaraEnemigo();
     }
 
+    public void UsarAtaqueBasico()
+    {
+        if (!PuedeJugar()) return;
+        if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
+
+        AplicarDanioAlEnemigo(danioAtaqueBasico, "Ataque Básico");
+    }
+
     public void UsarSalteadoPicante()
     {
         if (!PuedeJugar()) return;
@@ -414,7 +425,10 @@ public class CombateManager : MonoBehaviour
 
             TextMeshProUGUI texto = nuevoBoton.GetComponentInChildren<TextMeshProUGUI>();
             if (texto != null)
-                texto.text = slot.nombreIngrediente + " x" + slot.cantidad;
+            {
+                string nombreLindo = GameManager.Instancia.ObtenerNombreParaMostrar(slot.nombreIngrediente);
+                texto.text = nombreLindo + " x" + slot.cantidad;
+            }
 
             string nombreIngrediente = slot.nombreIngrediente;
             Button boton = nuevoBoton.GetComponent<Button>();
@@ -705,9 +719,13 @@ public class CombateManager : MonoBehaviour
 
     private string ObtenerTextoRecompensas()
     {
-        return "Obtuviste: " + cantidadRecompensa1 + " " + ingredienteRecompensa1 +
-               ", " + cantidadRecompensa2 + " " + ingredienteRecompensa2 +
-               ", " + cantidadRecompensa3 + " " + ingredienteRecompensa3;
+        string nombre1 = GameManager.Instancia != null ? GameManager.Instancia.ObtenerNombreParaMostrar(ingredienteRecompensa1) : ingredienteRecompensa1;
+        string nombre2 = GameManager.Instancia != null ? GameManager.Instancia.ObtenerNombreParaMostrar(ingredienteRecompensa2) : ingredienteRecompensa2;
+        string nombre3 = GameManager.Instancia != null ? GameManager.Instancia.ObtenerNombreParaMostrar(ingredienteRecompensa3) : ingredienteRecompensa3;
+
+        return "Obtuviste: " + cantidadRecompensa1 + " " + nombre1 +
+               ", " + cantidadRecompensa2 + " " + nombre2 +
+               ", " + cantidadRecompensa3 + " " + nombre3;
     }
 
     private void MostrarPanelResultado(string frase, string recompensas = "", bool mostrarIconos = false)

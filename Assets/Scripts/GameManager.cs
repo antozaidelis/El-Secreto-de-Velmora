@@ -26,10 +26,14 @@ public class GameManager : MonoBehaviour
     public List<Sprite> iconosDisponibles;
     public List<string> nombresDeIconos;
 
+    [Header("Nombres para mostrar (mismo orden que Nombres De Iconos)")]
+    public List<string> nombresParaMostrar;
+
     public List<SlotInventario> slotsInventario = new List<SlotInventario>();
     public bool huronDerrotado = false;
 
     private Dictionary<string, Sprite> mapaIconos = new Dictionary<string, Sprite>();
+    private Dictionary<string, string> mapaNombresMostrar = new Dictionary<string, string>();
 
     public event System.Action OnInventarioCambiado;
 
@@ -44,6 +48,7 @@ public class GameManager : MonoBehaviour
         Instancia = this;
         DontDestroyOnLoad(gameObject);
         ArmarMapaDeIconos();
+        ArmarMapaDeNombres();
     }
 
     public void ArmarMapaDeIconos()
@@ -53,6 +58,16 @@ public class GameManager : MonoBehaviour
         {
             if (i < iconosDisponibles.Count)
                 mapaIconos[nombresDeIconos[i]] = iconosDisponibles[i];
+        }
+    }
+
+    public void ArmarMapaDeNombres()
+    {
+        mapaNombresMostrar.Clear();
+        for (int i = 0; i < nombresDeIconos.Count; i++)
+        {
+            if (i < nombresParaMostrar.Count && !string.IsNullOrEmpty(nombresParaMostrar[i]))
+                mapaNombresMostrar[nombresDeIconos[i]] = nombresParaMostrar[i];
         }
     }
 
@@ -122,6 +137,20 @@ public class GameManager : MonoBehaviour
                 return par.Value;
         }
         return null;
+    }
+
+    public string ObtenerNombreParaMostrar(string nombreIngrediente)
+    {
+        if (string.IsNullOrEmpty(nombreIngrediente)) return nombreIngrediente;
+        string buscado = nombreIngrediente.Trim().ToLower();
+
+        foreach (var par in mapaNombresMostrar)
+        {
+            if (par.Key.Trim().ToLower() == buscado)
+                return par.Value;
+        }
+
+        return nombreIngrediente;
     }
 
     private void AvisarCambio()
