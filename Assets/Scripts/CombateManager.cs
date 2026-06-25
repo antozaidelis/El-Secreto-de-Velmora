@@ -27,6 +27,10 @@ public class CombateManager : MonoBehaviour
     public Sprite[] expresionesPorFrase;
     private int indiceFraseActual = 0;
 
+    [Header("Efecto máquina de escribir")]
+    public float velocidadEscritura = 0.03f;
+    private Coroutine corrutinaEscritura;
+
     [Header("Frases durante la batalla (globo de diálogo)")]
     public GameObject globoDialogoBatalla;
     public TextMeshProUGUI textoGloboDialogoBatalla;
@@ -209,7 +213,10 @@ public class CombateManager : MonoBehaviour
 
     private void MostrarFraseActual()
     {
-        textoDialogo.text = frasesEnemigo[indiceFraseActual];
+        if (corrutinaEscritura != null)
+            StopCoroutine(corrutinaEscritura);
+
+        corrutinaEscritura = StartCoroutine(EscribirTexto(frasesEnemigo[indiceFraseActual]));
 
         if (retratoEnemigoChico != null && expresionesPorFrase != null
             && indiceFraseActual < expresionesPorFrase.Length
@@ -217,6 +224,19 @@ public class CombateManager : MonoBehaviour
         {
             retratoEnemigoChico.sprite = expresionesPorFrase[indiceFraseActual];
         }
+    }
+
+    private IEnumerator EscribirTexto(string texto)
+    {
+        textoDialogo.text = "";
+
+        foreach (char letra in texto)
+        {
+            textoDialogo.text += letra;
+            yield return new WaitForSeconds(velocidadEscritura);
+        }
+
+        corrutinaEscritura = null;
     }
 
     private void MostrarFraseDeBatalla()
@@ -232,6 +252,14 @@ public class CombateManager : MonoBehaviour
 
     public void AvanzarDialogo()
     {
+        if (corrutinaEscritura != null)
+        {
+            StopCoroutine(corrutinaEscritura);
+            corrutinaEscritura = null;
+            textoDialogo.text = frasesEnemigo[indiceFraseActual];
+            return;
+        }
+
         indiceFraseActual++;
 
         if (indiceFraseActual < frasesEnemigo.Length)
