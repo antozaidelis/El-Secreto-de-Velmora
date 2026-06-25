@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2c9675cd53dfa104194fcb234cf25120
+guid: 4885c4e0cbbd3f14eae8281bb30e84ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -144392542478089586
-    second: sarten_infu 1_0
+      213: 5667589828607612342
+    second: "bot\xF3n_+_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sarten_infu 1_0
+      name: "bot\xF3n_+_0"
       rect:
         serializedVersion: 2
-        x: 6
-        y: 71
-        width: 450
-        height: 501
+        x: 20
+        y: 17
+        width: 105
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e82c0656fb30ffdf0800000000000000
-      internalID: -144392542478089586
+      spriteID: 6b516c2cbe257ae40800000000000000
+      internalID: 5667589828607612342
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sarten_infu 1_0: -144392542478089586
+      "bot\xF3n_+_0": 5667589828607612342
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

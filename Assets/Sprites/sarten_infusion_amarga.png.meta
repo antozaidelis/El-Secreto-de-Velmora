@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ebdb20cac95fe1840b3c52b23ecab9ac
+guid: 866280f84f3b3f441aed5cc13c2d9a09
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6816623335865414948
-    second: sarten_sopa_carga_0
+      213: 163200264664863641
+    second: sarten_infusion_amarga_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,10 +100,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sarten_sopa_carga_0
+      name: sarten_infusion_amarga_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 6
         y: 71
         width: 450
         height: 501
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cda8a1a213d7661a0800000000000000
-      internalID: -6816623335865414948
+      spriteID: 993599aa6cdc34200800000000000000
+      internalID: 163200264664863641
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sarten_sopa_carga_0: -6816623335865414948
+      sarten_infusion_amarga_0: 163200264664863641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

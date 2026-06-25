@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 9a717a964d9d1b948afd543ca04c310e
+guid: 5902f1cbda340aa4da1021f1c9461655
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7994305947181073583
-    second: sarten_picante_2_0
-  - first:
-      213: -4642514337823140274
-    second: sarten_picante_2_1
+      213: 5498799988057903793
+    second: barra_reconfortante_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sarten_picante_2_0
+      name: barra_reconfortante_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 567
-        width: 20
-        height: 8
+        x: 8
+        y: 0
+        width: 391
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 15bba70c8158e0190800000000000000
-      internalID: -7994305947181073583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sarten_picante_2_1
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 65
-        width: 450
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e46d46d8ec9729fb0800000000000000
-      internalID: -4642514337823140274
+      spriteID: 1b21d1b8479af4c40800000000000000
+      internalID: 5498799988057903793
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sarten_picante_2_0: -7994305947181073583
-      sarten_picante_2_1: -4642514337823140274
+      barra_reconfortante_0: 5498799988057903793
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

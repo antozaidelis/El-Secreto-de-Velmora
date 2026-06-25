@@ -29,11 +29,15 @@ public class GameManager : MonoBehaviour
     [Header("Nombres para mostrar (mismo orden que Nombres De Iconos)")]
     public List<string> nombresParaMostrar;
 
+    [Header("Descripciones cortas (mismo orden que Nombres De Iconos)")]
+    public List<string> descripcionesIngredientes;
+
     public List<SlotInventario> slotsInventario = new List<SlotInventario>();
     public bool huronDerrotado = false;
 
     private Dictionary<string, Sprite> mapaIconos = new Dictionary<string, Sprite>();
     private Dictionary<string, string> mapaNombresMostrar = new Dictionary<string, string>();
+    private Dictionary<string, string> mapaDescripciones = new Dictionary<string, string>();
 
     public event System.Action OnInventarioCambiado;
 
@@ -49,6 +53,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         ArmarMapaDeIconos();
         ArmarMapaDeNombres();
+        ArmarMapaDeDescripciones();
     }
 
     public void ArmarMapaDeIconos()
@@ -68,6 +73,16 @@ public class GameManager : MonoBehaviour
         {
             if (i < nombresParaMostrar.Count && !string.IsNullOrEmpty(nombresParaMostrar[i]))
                 mapaNombresMostrar[nombresDeIconos[i]] = nombresParaMostrar[i];
+        }
+    }
+
+    public void ArmarMapaDeDescripciones()
+    {
+        mapaDescripciones.Clear();
+        for (int i = 0; i < nombresDeIconos.Count; i++)
+        {
+            if (i < descripcionesIngredientes.Count && !string.IsNullOrEmpty(descripcionesIngredientes[i]))
+                mapaDescripciones[nombresDeIconos[i]] = descripcionesIngredientes[i];
         }
     }
 
@@ -151,6 +166,20 @@ public class GameManager : MonoBehaviour
         }
 
         return nombreIngrediente;
+    }
+
+    public string ObtenerDescripcionDe(string nombreIngrediente)
+    {
+        if (string.IsNullOrEmpty(nombreIngrediente)) return "";
+        string buscado = nombreIngrediente.Trim().ToLower();
+
+        foreach (var par in mapaDescripciones)
+        {
+            if (par.Key.Trim().ToLower() == buscado)
+                return par.Value;
+        }
+
+        return "";
     }
 
     private void AvisarCambio()

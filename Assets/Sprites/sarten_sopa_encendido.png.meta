@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4e13d1c3a51f720469bfee360e6802b9
+guid: f8e6c2c584654784e830e751e86af524
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -138985105586423544
-    second: sarten_sopa_no_carga_0
+      213: -5178464149232233478
+    second: sarten_sopa_encendido_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sarten_sopa_no_carga_0
+      name: sarten_sopa_encendido_0
       rect:
         serializedVersion: 2
         x: 7
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 809737868c9321ef0800000000000000
-      internalID: -138985105586423544
+      spriteID: af3daeefa466228b0800000000000000
+      internalID: -5178464149232233478
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sarten_sopa_no_carga_0: -138985105586423544
+      sarten_sopa_encendido_0: -5178464149232233478
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 17a720e14c435a24088bb53f5647470e
+guid: ba6ba63422c9c1d4aa880f9bf4cd527e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1064922112721517900
-    second: sarten_picante_1_0
+      213: -7268536616421938791
+    second: batalla buho5 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sarten_picante_1_0
+      name: batalla buho5 1_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 71
-        width: 450
-        height: 501
+        x: 44
+        y: 77
+        width: 1567
+        height: 373
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b286cd0bf2a831f0800000000000000
-      internalID: -1064922112721517900
+      spriteID: 999204d2578f02b90800000000000000
+      internalID: -7268536616421938791
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sarten_picante_1_0: -1064922112721517900
+      batalla buho5 1_0: -7268536616421938791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
