@@ -11,7 +11,16 @@ public class InventarioUI : MonoBehaviour
     public List<Image> slots;
     public List<TextMeshProUGUI> textosCantidad;
 
+    [Header("Botones de cada slot (para elegir ingrediente en combate)")]
+    public List<Button> botonesSlots;
+
+    [Header("Feedback visual de selección (opcional)")]
+    public Image fondoPanel;
+    public Color colorNormal = new Color(1, 1, 1, 0f);
+    public Color colorSeleccion = new Color(1, 0.9f, 0.3f, 0.3f);
+
     private bool suscrito = false;
+    private System.Action<string> callbackSeleccion;
 
     void Awake()
     {
@@ -23,6 +32,11 @@ public class InventarioUI : MonoBehaviour
 
         Instancia = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void OnEnable()
+    {
+        SuscribirseAlGameManager();
     }
 
     void Start()
@@ -49,6 +63,72 @@ public class InventarioUI : MonoBehaviour
             GameManager.Instancia.OnInventarioCambiado += ActualizarUI;
             suscrito = true;
         }
+    }
+
+    public void Mostrar(bool mostrar)
+    {
+        gameObject.SetActive(mostrar);
+    }
+
+    // ---------- PRUEBA TEMPORAL DE DIAGNÓSTICO ----------
+    public void PruebaClick()
+    {
+        Debug.Log("PRUEBA: el click SÍ llega al botón.");
+    }
+    // ------------------------------------------------------
+
+    public void HabilitarSeleccion(System.Action<string> callback)
+    {
+        Debug.Log("HOTBAR: HabilitarSeleccion() llamado. Botones disponibles: " + botonesSlots.Count);
+
+        callbackSeleccion = callback;
+
+        if (fondoPanel != null) fondoPanel.color = colorSeleccion;
+
+        for (int i = 0; i < botonesSlots.Count; i++)
+        {
+            int indice = i;
+            botonesSlots[i].onClick.RemoveAllListeners();
+            botonesSlots[i].onClick.AddListener(() => SeleccionarSlot(indice));
+        }
+    }
+
+    public void DeshabilitarSeleccion()
+    {
+        Debug.Log("HOTBAR: DeshabilitarSeleccion() llamado.");
+
+        callbackSeleccion = null;
+
+        if (fondoPanel != null) fondoPanel.color = colorNormal;
+
+        foreach (Button boton in botonesSlots)
+        {
+            if (boton != null)
+                boton.onClick.RemoveAllListeners();
+        }
+    }
+
+    private void SeleccionarSlot(int indice)
+    {
+        Debug.Log("HOTBAR: Tocaste el slot " + indice);
+
+        if (GameManager.Instancia == null || callbackSeleccion == null)
+        {
+            Debug.Log("HOTBAR: No hay GameManager o no hay callback activo. callbackSeleccion es null: " + (callbackSeleccion == null));
+            return;
+        }
+
+        List<SlotInventario> datos = GameManager.Instancia.slotsInventario;
+
+        if (indice >= datos.Count)
+        {
+            Debug.Log("HOTBAR: Ese slot está vacío (no hay ingrediente ahí).");
+            return;
+        }
+
+        string nombreIngrediente = datos[indice].nombreIngrediente;
+        Debug.Log("HOTBAR: Ingrediente elegido: " + nombreIngrediente);
+        callbackSeleccion.Invoke(nombreIngrediente);
     }
 
     public void ActualizarUI()

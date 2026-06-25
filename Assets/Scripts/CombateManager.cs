@@ -82,14 +82,12 @@ public class CombateManager : MonoBehaviour
     [Header("Sistema de cargas")]
     public float cargaMaxima = 5f;
     public string ingredienteSalteadoPicante = "pimiento_0";
-    public string ingredienteSopaReconfortante = "hierba_serena";
-    public string ingredienteInfusionAmarga = "hongo_amargo";
+    public string ingredienteSopaReconfortante = "hierba Serena";
+    public string ingredienteInfusionAmarga = "hongo amargo";
 
     private float cargaSalteadoPicante = 0f;
     private float cargaSopaReconfortante = 0f;
     private float cargaInfusionAmarga = 0f;
-
-    private float[] tablaCargaPorCantidad = new float[] { 0f, 0.1f, 0.5f, 1.0f };
 
     [Header("UI - Barras de carga (texto, opcional)")]
     public TextMeshProUGUI textoCargaSalteado;
@@ -122,18 +120,19 @@ public class CombateManager : MonoBehaviour
     public Image fondoTarjetaSopaBatalla;
     public Image fondoTarjetaInfusionBatalla;
 
-    [Header("UI - Panel de selección de ingrediente")]
-    public GameObject panelSeleccionIngrediente;
+    [Header("UI - Descripción de receta (opcional)")]
     public TextMeshProUGUI textoDescripcionReceta;
-    public List<Button> botonesIngredientesInventario;
-    public List<Image> iconosIngredientesInventario;
-    public List<TextMeshProUGUI> cantidadesIngredientesInventario;
 
     [TextArea] public string descripcionSalteadoPicante = "Un plato que arde con fuerza... necesita algo picante para tomar forma.";
     [TextArea] public string descripcionSopaReconfortante = "Un caldo suave y calmo... algo del bosque, tranquilo, lo haría perfecto.";
     [TextArea] public string descripcionInfusionAmarga = "Un brebaje de sabor extraño... algo terroso y amargo le daría su efecto.";
 
     private string recetaSiendoCargada = "";
+
+    [Header("Panel de selección de ingrediente (dinámico)")]
+    public GameObject panelSeleccion;
+    public GameObject botonIngredientePrefab;
+    private List<GameObject> botonesInstanciados = new List<GameObject>();
 
     [Header("Configuración enemigo - Hurón del Pensamiento")]
     public int danioMordida = 10;
@@ -180,17 +179,23 @@ public class CombateManager : MonoBehaviour
         panelDialogo.SetActive(true);
         panelBatalla.SetActive(false);
 
+        if (InventarioUI.Instancia != null)
+            InventarioUI.Instancia.Mostrar(false);
+
         nombreEnemigoTexto.text = nombreEnemigo;
         indiceFraseActual = 0;
         MostrarFraseActual();
 
         botonSkip.onClick.AddListener(AvanzarDialogo);
 
-        if (panelSeleccionIngrediente != null)
-            panelSeleccionIngrediente.SetActive(false);
-
         if (panelResultado != null)
             panelResultado.SetActive(false);
+
+        if (panelSeleccion != null)
+            panelSeleccion.SetActive(false);
+
+        if (textoDescripcionReceta != null)
+            textoDescripcionReceta.gameObject.SetActive(false);
 
         ActualizarTextosCarga();
     }
@@ -236,6 +241,9 @@ public class CombateManager : MonoBehaviour
     {
         panelDialogo.SetActive(false);
         panelBatalla.SetActive(true);
+
+        if (InventarioUI.Instancia != null)
+            InventarioUI.Instancia.Mostrar(true);
 
         vidaJugador = vidaJugadorMax;
         vidaEnemigo = vidaEnemigoMax;
@@ -321,28 +329,103 @@ public class CombateManager : MonoBehaviour
         return resultado;
     }
 
+    // ---------- BOTÓN "+": abre/cierra el panel de selección de ingrediente ----------
+
     public void AbrirCargaSalteadoPicante()
     {
         if (!PuedeAbrirCarga()) return;
-        recetaSiendoCargada = "salteado";
-        textoDescripcionReceta.text = descripcionSalteadoPicante;
-        MostrarPanelSeleccionIngrediente();
+
+        if (recetaSiendoCargada == "salteado")
+        {
+            CancelarSeleccion();
+            return;
+        }
+
+        IniciarSeleccion("salteado", descripcionSalteadoPicante);
     }
 
     public void AbrirCargaSopaReconfortante()
     {
         if (!PuedeAbrirCarga()) return;
-        recetaSiendoCargada = "sopa";
-        textoDescripcionReceta.text = descripcionSopaReconfortante;
-        MostrarPanelSeleccionIngrediente();
+
+        if (recetaSiendoCargada == "sopa")
+        {
+            CancelarSeleccion();
+            return;
+        }
+
+        IniciarSeleccion("sopa", descripcionSopaReconfortante);
     }
 
     public void AbrirCargaInfusionAmarga()
     {
         if (!PuedeAbrirCarga()) return;
-        recetaSiendoCargada = "infusion";
-        textoDescripcionReceta.text = descripcionInfusionAmarga;
-        MostrarPanelSeleccionIngrediente();
+
+        if (recetaSiendoCargada == "infusion")
+        {
+            CancelarSeleccion();
+            return;
+        }
+
+        IniciarSeleccion("infusion", descripcionInfusionAmarga);
+    }
+
+    private void IniciarSeleccion(string receta, string descripcion)
+    {
+        recetaSiendoCargada = receta;
+
+        if (textoDescripcionReceta != null)
+        {
+            textoDescripcionReceta.text = descripcion;
+            textoDescripcionReceta.gameObject.SetActive(true);
+        }
+
+        PoblarPanelSeleccion();
+
+        if (panelSeleccion != null)
+            panelSeleccion.SetActive(true);
+    }
+
+    private void CancelarSeleccion()
+    {
+        recetaSiendoCargada = "";
+
+        if (textoDescripcionReceta != null)
+            textoDescripcionReceta.gameObject.SetActive(false);
+
+        if (panelSeleccion != null)
+            panelSeleccion.SetActive(false);
+    }
+
+    private void PoblarPanelSeleccion()
+    {
+        foreach (GameObject boton in botonesInstanciados)
+            Destroy(boton);
+        botonesInstanciados.Clear();
+
+        if (GameManager.Instancia == null || panelSeleccion == null || botonIngredientePrefab == null) return;
+
+        List<SlotInventario> slots = GameManager.Instancia.slotsInventario;
+
+        foreach (SlotInventario slot in slots)
+        {
+            GameObject nuevoBoton = Instantiate(botonIngredientePrefab, panelSeleccion.transform);
+            nuevoBoton.SetActive(true);
+
+            TextMeshProUGUI texto = nuevoBoton.GetComponentInChildren<TextMeshProUGUI>();
+            if (texto != null)
+                texto.text = slot.nombreIngrediente + " x" + slot.cantidad;
+
+            string nombreIngrediente = slot.nombreIngrediente;
+            Button boton = nuevoBoton.GetComponent<Button>();
+            if (boton != null)
+            {
+                boton.onClick.RemoveAllListeners();
+                boton.onClick.AddListener(() => ElegirIngredienteParaCarga(nombreIngrediente));
+            }
+
+            botonesInstanciados.Add(nuevoBoton);
+        }
     }
 
     private bool PuedeAbrirCarga()
@@ -353,56 +436,16 @@ public class CombateManager : MonoBehaviour
         return true;
     }
 
-    private void MostrarPanelSeleccionIngrediente()
-    {
-        if (panelSeleccionIngrediente == null || GameManager.Instancia == null) return;
-
-        panelSeleccionIngrediente.SetActive(true);
-
-        List<SlotInventario> slots = GameManager.Instancia.slotsInventario;
-
-        for (int i = 0; i < botonesIngredientesInventario.Count; i++)
-        {
-            if (i < slots.Count)
-            {
-                SlotInventario slot = slots[i];
-
-                botonesIngredientesInventario[i].gameObject.SetActive(true);
-
-                if (i < iconosIngredientesInventario.Count)
-                    iconosIngredientesInventario[i].sprite = GameManager.Instancia.ObtenerIconoDe(slot.nombreIngrediente);
-
-                if (i < cantidadesIngredientesInventario.Count)
-                    cantidadesIngredientesInventario[i].text = "x" + slot.cantidad;
-
-                string nombreIngrediente = slot.nombreIngrediente;
-                botonesIngredientesInventario[i].onClick.RemoveAllListeners();
-                botonesIngredientesInventario[i].onClick.AddListener(() => ElegirIngredienteParaCarga(nombreIngrediente));
-            }
-            else
-            {
-                botonesIngredientesInventario[i].gameObject.SetActive(false);
-            }
-        }
-    }
-
     private void ElegirIngredienteParaCarga(string nombreIngredienteElegido)
     {
-        panelSeleccionIngrediente.SetActive(false);
-
         string ingredienteCorrecto = ObtenerIngredienteDeReceta(recetaSiendoCargada);
         bool esCorrecto = (nombreIngredienteElegido == ingredienteCorrecto);
 
-        int cantidadDisponible = GameManager.Instancia.ContarIngrediente(nombreIngredienteElegido);
-        int cantidadAGastar = Mathf.Min(3, cantidadDisponible);
-
-        for (int i = 0; i < cantidadAGastar; i++)
-            GameManager.Instancia.GastarIngrediente(nombreIngredienteElegido);
+        GameManager.Instancia.GastarIngrediente(nombreIngredienteElegido);
 
         if (esCorrecto)
         {
-            float cargaGanada = tablaCargaPorCantidad[cantidadAGastar];
-            SumarCarga(recetaSiendoCargada, cargaGanada);
+            SumarCarga(recetaSiendoCargada, cargaMaxima);
 
             if (panelBatalla != null && panelBatalla.activeSelf)
             {
@@ -417,7 +460,7 @@ public class CombateManager : MonoBehaviour
             }
         }
 
-        recetaSiendoCargada = "";
+        CancelarSeleccion();
     }
 
     private string ObtenerIngredienteDeReceta(string receta)
@@ -492,14 +535,6 @@ public class CombateManager : MonoBehaviour
     private bool PuedeJugar()
     {
         return esTurnoJugador && !combateTerminado;
-    }
-
-    public void CerrarPanelSeleccion()
-    {
-        if (panelSeleccionIngrediente != null)
-            panelSeleccionIngrediente.SetActive(false);
-
-        recetaSiendoCargada = "";
     }
 
     private void AplicarDanioAlEnemigo(int danio, string nombreReceta)
@@ -636,6 +671,9 @@ public class CombateManager : MonoBehaviour
 
         if (ganoJugador)
         {
+            if (GameManager.Instancia != null)
+                GameManager.Instancia.huronDerrotado = true;
+
             if (caraMisu != null) caraMisu.sprite = caraMisuGanando;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoPerdiendo;
 
@@ -721,6 +759,9 @@ public class CombateManager : MonoBehaviour
 
     private void VolverAlMapa()
     {
+        if (InventarioUI.Instancia != null)
+            InventarioUI.Instancia.Mostrar(true);
+
         SceneManager.LoadScene(nombreEscenaMapa);
     }
 

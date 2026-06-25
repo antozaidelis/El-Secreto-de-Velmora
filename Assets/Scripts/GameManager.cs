@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public List<string> nombresDeIconos;
 
     public List<SlotInventario> slotsInventario = new List<SlotInventario>();
+    public bool huronDerrotado = false;
 
     private Dictionary<string, Sprite> mapaIconos = new Dictionary<string, Sprite>();
 

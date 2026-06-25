@@ -13,12 +13,18 @@ public class HuronAI : MonoBehaviour
 
     private Vector3 posicionInicial;
     private bool persiguiendo = false;
-
     private SpriteRenderer spriteRenderer;
     private Animator animator;
 
     void Start()
     {
+        // Si ya fue derrotado en esta sesión de juego, desaparece directamente
+        if (GameManager.Instancia != null && GameManager.Instancia.huronDerrotado)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         posicionInicial = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -99,8 +105,6 @@ public class HuronAI : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("¡EL HURÓN TE ATRAPÓ! Intentando cargar sistema_combate...");
-
-            // Llama exactamente a la escena de tus compañeras
             UnityEngine.SceneManagement.SceneManager.LoadScene("sistema_combate");
         }
     }
