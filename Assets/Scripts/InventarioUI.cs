@@ -5,47 +5,50 @@ using System.Collections.Generic;
 
 public class InventarioUI : MonoBehaviour
 {
-    [Header("Referencias")]
-    public GameObject panelMochila;
+    public static InventarioUI Instancia { get; private set; }
+
+    [Header("Slots de la Hotbar")]
     public List<Image> slots;
     public List<TextMeshProUGUI> textosCantidad;
 
-    [Header("Recetas")]
-    public GameObject seccionRecetas;
+    private bool suscrito = false;
 
-    private bool mochilaAbierta = false;
-    private bool recetasAbiertas = false;
+    void Awake()
+    {
+        if (Instancia != null && Instancia != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instancia = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
-        if (seccionRecetas != null)
-            seccionRecetas.SetActive(false);
-
+        SuscribirseAlGameManager();
         ActualizarUI();
-    }
 
-    void OnEnable()
-    {
-        if (GameManager.Instancia != null)
-            GameManager.Instancia.OnInventarioCambiado += ActualizarUI;
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
     }
 
     void OnDisable()
     {
-        if (GameManager.Instancia != null)
+        if (GameManager.Instancia != null && suscrito)
+        {
             GameManager.Instancia.OnInventarioCambiado -= ActualizarUI;
+            suscrito = false;
+        }
     }
 
-    public void ToggleMochila()
+    private void SuscribirseAlGameManager()
     {
-        mochilaAbierta = !mochilaAbierta;
-        panelMochila.SetActive(mochilaAbierta);
-    }
-
-    public void ToggleRecetas()
-    {
-        recetasAbiertas = !recetasAbiertas;
-        seccionRecetas.SetActive(recetasAbiertas);
+        if (GameManager.Instancia != null && !suscrito)
+        {
+            GameManager.Instancia.OnInventarioCambiado += ActualizarUI;
+            suscrito = true;
+        }
     }
 
     public void ActualizarUI()
