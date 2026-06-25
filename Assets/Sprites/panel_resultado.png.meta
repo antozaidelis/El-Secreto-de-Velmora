@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d2f97660527bd6a4f95af585265c1274
+guid: 4b341805268a3a14dba4d4caccf95677
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6415490079858998490
-    second: backpack_0
+      213: -4462210055399125360
+    second: panel_resultado_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: backpack_0
+      name: panel_resultado_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 848
+        y: 236
+        width: 3409
+        height: 2629
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62346f953c997f6a0800000000000000
-      internalID: -6415490079858998490
+      spriteID: 09e42cea89b0312c0800000000000000
+      internalID: -4462210055399125360
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      backpack_0: -6415490079858998490
+      panel_resultado_0: -4462210055399125360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

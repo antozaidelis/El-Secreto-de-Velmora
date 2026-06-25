@@ -54,6 +54,10 @@ public class CombateManager : MonoBehaviour
     public TextMeshProUGUI textoVidaJugador;
     public TextMeshProUGUI textoVidaEnemigo;
 
+    [Header("UI Batalla - Barras de vida")]
+    public Image barraVidaJugador;
+    public Image barraVidaEnemigo;
+
     [Header("UI Batalla - Cara de Misu")]
     public Image caraMisu;
     public Sprite caraMisuNormal;
@@ -72,15 +76,15 @@ public class CombateManager : MonoBehaviour
     public Button botonInfusionAmarga;
 
     [Header("Ataque Básico")]
-    public int danioAtaqueBasico = 8;
+    public int danioAtaqueBasico = 5;
 
     [Header("Configuración de recetas")]
     public int danioSalteadoPicante = 15;
-    public int danioSalteadoPicanteMax = 30;
+    public int danioSalteadoPicanteMax = 28;
     public int curacionSopaReconfortante = 0;
     public int curacionSopaReconfortanteMax = 40;
     public int danioInfusionAmarga = 5;
-    public int danioInfusionAmargaMax = 10;
+    public int danioInfusionAmargaMax = 14;
 
     [Header("Sistema de cargas")]
     public float cargaMaxima = 5f;
@@ -423,11 +427,20 @@ public class CombateManager : MonoBehaviour
             GameObject nuevoBoton = Instantiate(botonIngredientePrefab, panelSeleccion.transform);
             nuevoBoton.SetActive(true);
 
+            Image[] imagenes = nuevoBoton.GetComponentsInChildren<Image>();
+            foreach (Image img in imagenes)
+            {
+                if (img.gameObject != nuevoBoton)
+                {
+                    img.sprite = GameManager.Instancia.ObtenerIconoDe(slot.nombreIngrediente);
+                    img.color = img.sprite != null ? Color.white : new Color(1, 1, 1, 0f);
+                }
+            }
+
             TextMeshProUGUI texto = nuevoBoton.GetComponentInChildren<TextMeshProUGUI>();
             if (texto != null)
             {
-                string nombreLindo = GameManager.Instancia.ObtenerNombreParaMostrar(slot.nombreIngrediente);
-                texto.text = nombreLindo + " x" + slot.cantidad;
+                texto.text = slot.cantidad > 1 ? "x" + slot.cantidad : "";
             }
 
             string nombreIngrediente = slot.nombreIngrediente;
@@ -647,6 +660,12 @@ public class CombateManager : MonoBehaviour
     {
         textoVidaJugador.text = "Misu: " + vidaJugador + " / " + vidaJugadorMax;
         textoVidaEnemigo.text = nombreEnemigo + ": " + vidaEnemigo + " / " + vidaEnemigoMax;
+
+        if (barraVidaJugador != null)
+            barraVidaJugador.fillAmount = (float)vidaJugador / vidaJugadorMax;
+
+        if (barraVidaEnemigo != null)
+            barraVidaEnemigo.fillAmount = (float)vidaEnemigo / vidaEnemigoMax;
     }
 
     private void ActualizarCaraMisu()

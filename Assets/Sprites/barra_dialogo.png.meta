@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 727bade625a677c41a55ff0cf94b61e8
+guid: d464a228fbc83724eae9a589a18fd8b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3558213528062374207
-    second: sarten prendida_0
+      213: -9048608759081155751
+    second: barra_dialogo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sarten prendida_0
+      name: barra_dialogo_0
       rect:
         serializedVersion: 2
-        x: 211
-        y: 397
-        width: 1053
-        height: 683
+        x: 24
+        y: 82
+        width: 1657
+        height: 395
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ce4ad006afae9ec0800000000000000
-      internalID: -3558213528062374207
+      spriteID: 953ca737642ec6280800000000000000
+      internalID: -9048608759081155751
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sarten prendida_0: -3558213528062374207
+      barra_dialogo_0: -9048608759081155751
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
