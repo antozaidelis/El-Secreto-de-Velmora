@@ -4855,11 +4855,11 @@ MonoBehaviour:
   botonInfusionAmarga: {fileID: 0}
   danioAtaqueBasico: 5
   danioSalteadoPicante: 15
-  danioSalteadoPicanteMax: 30
+  danioSalteadoPicanteMax: 28
   curacionSopaReconfortante: 12
-  curacionSopaReconfortanteMax: 40
+  curacionSopaReconfortanteMax: 28
   danioInfusionAmarga: 8
-  danioInfusionAmargaMax: 10
+  danioInfusionAmargaMax: 14
   cargaMaxima: 5
   ingredienteSalteadoPicante: pimiento_0
   ingredienteSopaReconfortante: hierba Serena
