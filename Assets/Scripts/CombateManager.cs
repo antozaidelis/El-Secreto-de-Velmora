@@ -31,6 +31,10 @@ public class CombateManager : MonoBehaviour
     public float velocidadEscritura = 0.03f;
     private Coroutine corrutinaEscritura;
 
+    [Header("Sonido de máquina de escribir")]
+    public AudioSource audioMaquinaEscribir;
+    public AudioClip clipMaquinaEscribir;
+
     [Header("Frases durante la batalla (globo de diálogo)")]
     public GameObject globoDialogoBatalla;
     public TextMeshProUGUI textoGloboDialogoBatalla;
@@ -73,6 +77,12 @@ public class CombateManager : MonoBehaviour
     public Sprite caraEnemigoNormal;
     public Sprite caraEnemigoGanando;
     public Sprite caraEnemigoPerdiendo;
+
+    [Header("Sonidos de estado del enemigo")]
+    public AudioSource audioEstadoEnemigo;
+    public AudioClip clipHuronGanando;
+    public AudioClip clipHuronPerdiendo;
+    private string estadoAnteriorEnemigo = "";
 
     [Header("UI Batalla - Botones de recetas")]
     public Button botonSalteadoPicante;
@@ -169,10 +179,17 @@ public class CombateManager : MonoBehaviour
     public Image iconoRecompensa1;
     public Image iconoRecompensa2;
     public Image iconoRecompensa3;
+    public GameObject filaIconosRecompensa;
+    public GameObject textoSinRecompensa;
     public Button botonContinuar;
     public string nombreEscenaMapa = "Escena_Lara";
     [TextArea] public string fraseVictoria = "Las flores dejan de temblar. El Hurón se retira, dejando su ofrenda entre el pasto.";
     [TextArea] public string fraseDerrota = "El bosque te vio caer. Cuando despertás, tu mochila está vacía.";
+
+    [Header("Sprites del botón continuar (siguiente/reintentar)")]
+    public Image imagenBotonContinuar;
+    public Sprite spriteBotonSiguiente;
+    public Sprite spriteBotonReintentar;
 
     [Header("Recompensas al ganar")]
     public string ingredienteRecompensa1 = "flor del pensamiento";
@@ -229,11 +246,27 @@ public class CombateManager : MonoBehaviour
     private IEnumerator EscribirTexto(string texto)
     {
         textoDialogo.text = "";
+        string[] palabras = texto.Split(' ');
+        bool primera = true;
 
-        foreach (char letra in texto)
+        foreach (string palabra in palabras)
         {
-            textoDialogo.text += letra;
-            yield return new WaitForSeconds(velocidadEscritura);
+            if (!primera)
+                textoDialogo.text += " ";
+            primera = false;
+
+            if (audioMaquinaEscribir != null && clipMaquinaEscribir != null)
+            {
+                audioMaquinaEscribir.pitch = Random.Range(0.95f, 1.05f);
+                audioMaquinaEscribir.clip = clipMaquinaEscribir;
+                audioMaquinaEscribir.Play();
+            }
+
+            foreach (char letra in palabra)
+            {
+                textoDialogo.text += letra;
+                yield return new WaitForSeconds(velocidadEscritura);
+            }
         }
 
         corrutinaEscritura = null;
@@ -257,6 +290,10 @@ public class CombateManager : MonoBehaviour
             StopCoroutine(corrutinaEscritura);
             corrutinaEscritura = null;
             textoDialogo.text = frasesEnemigo[indiceFraseActual];
+
+            if (audioMaquinaEscribir != null && audioMaquinaEscribir.isPlaying)
+                audioMaquinaEscribir.Stop();
+
             return;
         }
 
@@ -274,6 +311,9 @@ public class CombateManager : MonoBehaviour
 
     public void IniciarBatalla()
     {
+        if (audioMaquinaEscribir != null && audioMaquinaEscribir.isPlaying)
+            audioMaquinaEscribir.Stop();
+
         panelDialogo.SetActive(false);
         panelBatalla.SetActive(true);
 
@@ -284,6 +324,7 @@ public class CombateManager : MonoBehaviour
         vidaEnemigo = vidaEnemigoMax;
         combateTerminado = false;
         esTurnoJugador = true;
+        estadoAnteriorEnemigo = "";
 
         turnosHastaProximaFrase = Random.Range(turnosMinimoEntreFrases, turnosMaximoEntreFrases + 1);
 
@@ -686,8 +727,8 @@ public class CombateManager : MonoBehaviour
 
     private void ActualizarUIVida()
     {
-        textoVidaJugador.text = "Misu: " + vidaJugador + " / " + vidaJugadorMax;
-        textoVidaEnemigo.text = nombreEnemigo + ": " + vidaEnemigo + " / " + vidaEnemigoMax;
+        textoVidaJugador.text = vidaJugador + " / " + vidaJugadorMax;
+        textoVidaEnemigo.text = vidaEnemigo + " / " + vidaEnemigoMax;
 
         if (barraVidaJugador != null)
             barraVidaJugador.fillAmount = (float)vidaJugador / vidaJugadorMax;
@@ -718,12 +759,33 @@ public class CombateManager : MonoBehaviour
         float porcentajeVida = (float)vidaJugador / vidaJugadorMax;
         float porcentajeVidaEnemigo = (float)vidaEnemigo / vidaEnemigoMax;
 
+        string estadoActual;
+
         if (porcentajeVidaEnemigo <= 0.3f)
+        {
             caraEnemigoBatalla.sprite = caraEnemigoPerdiendo;
+            estadoActual = "perdiendo";
+        }
         else if (porcentajeVida < porcentajeVidaEnemigo)
+        {
             caraEnemigoBatalla.sprite = caraEnemigoGanando;
+            estadoActual = "ganando";
+        }
         else
+        {
             caraEnemigoBatalla.sprite = caraEnemigoNormal;
+            estadoActual = "normal";
+        }
+
+        if (estadoActual != estadoAnteriorEnemigo)
+        {
+            if (estadoActual == "ganando" && audioEstadoEnemigo != null && clipHuronGanando != null)
+                audioEstadoEnemigo.PlayOneShot(clipHuronGanando);
+            else if (estadoActual == "perdiendo" && audioEstadoEnemigo != null && clipHuronPerdiendo != null)
+                audioEstadoEnemigo.PlayOneShot(clipHuronPerdiendo);
+
+            estadoAnteriorEnemigo = estadoActual;
+        }
     }
 
     private void TerminarCombate(bool ganoJugador)
@@ -792,32 +854,36 @@ public class CombateManager : MonoBehaviour
             if (mostrarIconos && GameManager.Instancia != null)
             {
                 if (iconoRecompensa1 != null)
-                {
                     iconoRecompensa1.sprite = GameManager.Instancia.ObtenerIconoDe(ingredienteRecompensa1);
-                    iconoRecompensa1.gameObject.SetActive(iconoRecompensa1.sprite != null);
-                }
                 if (iconoRecompensa2 != null)
-                {
                     iconoRecompensa2.sprite = GameManager.Instancia.ObtenerIconoDe(ingredienteRecompensa2);
-                    iconoRecompensa2.gameObject.SetActive(iconoRecompensa2.sprite != null);
-                }
                 if (iconoRecompensa3 != null)
-                {
                     iconoRecompensa3.sprite = GameManager.Instancia.ObtenerIconoDe(ingredienteRecompensa3);
-                    iconoRecompensa3.gameObject.SetActive(iconoRecompensa3.sprite != null);
-                }
+
+                if (filaIconosRecompensa != null)
+                    filaIconosRecompensa.SetActive(true);
+
+                if (textoSinRecompensa != null)
+                    textoSinRecompensa.SetActive(false);
             }
             else
             {
-                if (iconoRecompensa1 != null) iconoRecompensa1.gameObject.SetActive(false);
-                if (iconoRecompensa2 != null) iconoRecompensa2.gameObject.SetActive(false);
-                if (iconoRecompensa3 != null) iconoRecompensa3.gameObject.SetActive(false);
+                if (filaIconosRecompensa != null)
+                    filaIconosRecompensa.SetActive(false);
+
+                if (textoSinRecompensa != null)
+                    textoSinRecompensa.SetActive(true);
             }
 
             if (botonContinuar != null)
             {
                 botonContinuar.onClick.RemoveAllListeners();
                 botonContinuar.onClick.AddListener(VolverAlMapa);
+            }
+
+            if (imagenBotonContinuar != null)
+            {
+                imagenBotonContinuar.sprite = mostrarIconos ? spriteBotonSiguiente : spriteBotonReintentar;
             }
         }
     }
