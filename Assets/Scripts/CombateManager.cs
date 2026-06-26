@@ -799,6 +799,18 @@ public class CombateManager : MonoBehaviour
     {
         combateTerminado = true;
 
+        if (GestorTransicion.Instancia != null)
+        {
+            GestorTransicion.Instancia.TransicionEntrePaneles(() => MostrarResultadoFinal(ganoJugador));
+        }
+        else
+        {
+            MostrarResultadoFinal(ganoJugador);
+        }
+    }
+
+    private void MostrarResultadoFinal(bool ganoJugador)
+    {
         if (ganoJugador)
         {
             if (GameManager.Instancia != null)

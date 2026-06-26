@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 68e0af2bb11861247a1b9c2401497a21
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3247564886084723920
+    second: titulo_velmora_0
+  - first:
+      213: -2430858221567829826
+    second: titulo_velmora_1
+  - first:
+      213: -3043061810878389396
+    second: titulo_velmora_2
+  - first:
+      213: 9109746397514238903
+    second: titulo_velmora_3
+  - first:
+      213: 5443968098270922287
+    second: titulo_velmora_4
+  - first:
+      213: 6938593746912707650
+    second: titulo_velmora_5
+  - first:
+      213: 6574576158541253910
+    second: titulo_velmora_6
+  - first:
+      213: 2945259797107791484
+    second: titulo_velmora_7
+  - first:
+      213: 5824141147185208511
+    second: titulo_velmora_8
+  - first:
+      213: 8035984863216342556
+    second: titulo_velmora_9
+  - first:
+      213: 589291459564848378
+    second: titulo_velmora_10
+  - first:
+      213: 9203851198605579480
+    second: titulo_velmora_11
+  - first:
+      213: -4628267176928296758
+    second: titulo_velmora_12
+  - first:
+      213: -703675882529488992
+    second: titulo_velmora_13
+  - first:
+      213: -6562894682348502837
+    second: titulo_velmora_14
+  - first:
+      213: -255240977841277849
+    second: titulo_velmora_15
+  - first:
+      213: 7830328740578246900
+    second: titulo_velmora_16
+  - first:
+      213: 3695074729290533482
+    second: titulo_velmora_17
+  - first:
+      213: 739148142712034936
+    second: titulo_velmora_18
+  - first:
+      213: -9086719560379157376
+    second: titulo_velmora_19
+  - first:
+      213: 4092222070978142603
+    second: titulo_velmora_20
+  - first:
+      213: 5966742718969123875
+    second: titulo_velmora_21
+  - first:
+      213: 5012868541611321117
+    second: titulo_velmora_22
+  - first:
+      213: 6547209772430814853
+    second: titulo_velmora_23
+  - first:
+      213: 9053323300113961693
+    second: titulo_velmora_24
+  - first:
+      213: -2793900242206367997
+    second: titulo_velmora_25
+  - first:
+      213: -6720618104081605395
+    second: titulo_velmora_26
+  - first:
+      213: -8238550514953956725
+    second: titulo_velmora_27
+  - first:
+      213: -572566085401745167
+    second: titulo_velmora_28
+  - first:
+      213: 7981183033088517189
+    second: titulo_velmora_29
+  - first:
+      213: 8991279492280745818
+    second: titulo_velmora_30
+  - first:
+      213: 400178848981577089
+    second: titulo_velmora_31
+  - first:
+      213: -7739034800753405567
+    second: titulo_velmora_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: titulo_velmora_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 1168
+        height: 313
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d4ac1cbe0ba11d20800000000000000
+      internalID: 3247564886084723920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 63
+        width: 181
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb89c14a35bd34ed0800000000000000
+      internalID: -2430858221567829826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_2
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 175
+        width: 54
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c636905e76fd4c5d0800000000000000
+      internalID: -3043061810878389396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 175
+        width: 55
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb0bb145125c6e70800000000000000
+      internalID: 9109746397514238903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_4
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 175
+        width: 52
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f264ff9542cdc8b40800000000000000
+      internalID: 5443968098270922287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_5
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 175
+        width: 54
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2448a752046da4060800000000000000
+      internalID: 6938593746912707650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_6
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 175
+        width: 46
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d8a9ebe269d3b50800000000000000
+      internalID: 6574576158541253910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_7
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 175
+        width: 64
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7659d94e2aafd820800000000000000
+      internalID: 2945259797107791484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_8
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 177
+        width: 47
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbcd5b7048183d050800000000000000
+      internalID: 5824141147185208511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_9
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 177
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c161d6818ad858f60800000000000000
+      internalID: 8035984863216342556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_10
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 131
+        width: 165
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4c884d5759d2800800000000000000
+      internalID: 589291459564848378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_11
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 172
+        width: 19
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d4507aa6e5aabf70800000000000000
+      internalID: 9203851198605579480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_12
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 172
+        width: 93
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0c691368715cfb0800000000000000
+      internalID: -4628267176928296758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_13
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 173
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aff1d8538a0c36f0800000000000000
+      internalID: -703675882529488992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_14
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 173
+        width: 47
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc04150ee0aebe4a0800000000000000
+      internalID: -6562894682348502837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_15
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 172
+        width: 69
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764b5a7dea3357cf0800000000000000
+      internalID: -255240977841277849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_16
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 123
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0c2b0b08aeaac60800000000000000
+      internalID: 7830328740578246900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_17
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 85
+        width: 69
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6a82e193ea874330800000000000000
+      internalID: 3695074729290533482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_18
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 83
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8769db2d15bf14a00800000000000000
+      internalID: 739148142712034936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_19
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 83
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 084b10e04bc75e180800000000000000
+      internalID: -9086719560379157376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_20
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 83
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b816aa2ca4e7ac830800000000000000
+      internalID: 4092222070978142603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_21
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 83
+        width: 74
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3249d46c3e02ec250800000000000000
+      internalID: 5966742718969123875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_22
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 77
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1729781169419540800000000000000
+      internalID: 5012868541611321117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_23
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 83
+        width: 57
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e64b3799c5cda50800000000000000
+      internalID: 6547209772430814853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_24
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 84
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd25f0c239dd3ad70800000000000000
+      internalID: 9053323300113961693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_25
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 83
+        width: 87
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f596d48821a39d0800000000000000
+      internalID: -2793900242206367997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_26
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 83
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec182311719bb2a0800000000000000
+      internalID: -6720618104081605395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_27
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 67
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82de04d4f9caad80800000000000000
+      internalID: -8238550514953956725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_28
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 83
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8613dcd26dd08f0800000000000000
+      internalID: -572566085401745167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_29
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 71
+        width: 41
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 544ad96beabd2ce60800000000000000
+      internalID: 7981183033088517189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_30
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 85
+        width: 68
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ff5a57f0177cc70800000000000000
+      internalID: 8991279492280745818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_31
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 75
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18deb2cfa88bd8500800000000000000
+      internalID: 400178848981577089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: titulo_velmora_32
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 54
+        width: 279
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18115b41adc699490800000000000000
+      internalID: -7739034800753405567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 617786f717e4084478c08f6e4db2e729
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      titulo_velmora_0: 3247564886084723920
+      titulo_velmora_1: -2430858221567829826
+      titulo_velmora_10: 589291459564848378
+      titulo_velmora_11: 9203851198605579480
+      titulo_velmora_12: -4628267176928296758
+      titulo_velmora_13: -703675882529488992
+      titulo_velmora_14: -6562894682348502837
+      titulo_velmora_15: -255240977841277849
+      titulo_velmora_16: 7830328740578246900
+      titulo_velmora_17: 3695074729290533482
+      titulo_velmora_18: 739148142712034936
+      titulo_velmora_19: -9086719560379157376
+      titulo_velmora_2: -3043061810878389396
+      titulo_velmora_20: 4092222070978142603
+      titulo_velmora_21: 5966742718969123875
+      titulo_velmora_22: 5012868541611321117
+      titulo_velmora_23: 6547209772430814853
+      titulo_velmora_24: 9053323300113961693
+      titulo_velmora_25: -2793900242206367997
+      titulo_velmora_26: -6720618104081605395
+      titulo_velmora_27: -8238550514953956725
+      titulo_velmora_28: -572566085401745167
+      titulo_velmora_29: 7981183033088517189
+      titulo_velmora_3: 9109746397514238903
+      titulo_velmora_30: 8991279492280745818
+      titulo_velmora_31: 400178848981577089
+      titulo_velmora_32: -7739034800753405567
+      titulo_velmora_4: 5443968098270922287
+      titulo_velmora_5: 6938593746912707650
+      titulo_velmora_6: 6574576158541253910
+      titulo_velmora_7: 2945259797107791484
+      titulo_velmora_8: 5824141147185208511
+      titulo_velmora_9: 8035984863216342556
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
