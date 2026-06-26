@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ab60de305279b4a9bdac46f6e40f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
-  escenaJuego: Nivel1
+  escenaJuego: Escena_Lara
 --- !u!4 &1395145794
 Transform:
   m_ObjectHideFlags: 0

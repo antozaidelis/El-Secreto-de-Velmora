@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public string escenaJuego = "Nivel1"; // Escribe aquí el nombre exacto de tu escena de juego
+    public string escenaJuego = "Escena_Lara"; // Escribe aquí el nombre exacto de tu escena de juego
 
     public void Jugar()
     {
