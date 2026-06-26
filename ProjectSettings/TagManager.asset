@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingrediente
   - ground
+  - Lore
   layers:
   - Default
   - TransparentFX

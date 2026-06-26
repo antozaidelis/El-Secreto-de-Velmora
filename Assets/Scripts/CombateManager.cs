@@ -17,10 +17,8 @@ public class CombateManager : MonoBehaviour
     public TextMeshProUGUI textoDialogo;
     public Button botonSkip;
     public string nombreEnemigo = "Hurón del Pensamiento";
-
     [Header("Identificador único del enemigo (para guardar si fue derrotado)")]
     public string idEnemigo = "huron";
-
     [TextArea]
     public string[] frasesEnemigo = new string[]
     {
@@ -95,6 +93,13 @@ public class CombateManager : MonoBehaviour
 
     [Header("Ataque Básico")]
     public int danioAtaqueBasico = 5;
+
+    [Header("Sonidos de ataque (uno por receta)")]
+    public AudioSource audioAtaques;
+    public AudioClip clipAtaqueBasico;
+    public AudioClip clipSalteadoPicante;
+    public AudioClip clipSopaReconfortante;
+    public AudioClip clipInfusionAmarga;
 
     [Header("Configuración de recetas")]
     public int danioSalteadoPicante = 15;
@@ -356,6 +361,9 @@ public class CombateManager : MonoBehaviour
         if (!PuedeJugar()) return;
         if (globoDialogoBatalla != null) globoDialogoBatalla.SetActive(false);
 
+        if (audioAtaques != null && clipAtaqueBasico != null)
+            audioAtaques.PlayOneShot(clipAtaqueBasico);
+
         AplicarDanioAlEnemigo(danioAtaqueBasico, "Ataque Básico");
     }
 
@@ -369,6 +377,9 @@ public class CombateManager : MonoBehaviour
             Debug.Log("Salteado Picante no tiene carga. Cargalo antes de usarlo.");
             return;
         }
+
+        if (audioAtaques != null && clipSalteadoPicante != null)
+            audioAtaques.PlayOneShot(clipSalteadoPicante);
 
         int danio = CalcularEfectoEscalado(danioSalteadoPicante, danioSalteadoPicanteMax, cargaSalteadoPicante);
         AplicarDanioAlEnemigo(danio, "Salteado Picante");
@@ -387,6 +398,9 @@ public class CombateManager : MonoBehaviour
             Debug.Log("Sopa Reconfortante no tiene carga. Cargala antes de usarla.");
             return;
         }
+
+        if (audioAtaques != null && clipSopaReconfortante != null)
+            audioAtaques.PlayOneShot(clipSopaReconfortante);
 
         int curacion = CalcularEfectoEscalado(0, curacionSopaReconfortanteMax, cargaSopaReconfortante);
 
@@ -413,6 +427,9 @@ public class CombateManager : MonoBehaviour
             Debug.Log("Infusión Amarga no tiene carga. Cargala antes de usarla.");
             return;
         }
+
+        if (audioAtaques != null && clipInfusionAmarga != null)
+            audioAtaques.PlayOneShot(clipInfusionAmarga);
 
         int danio = CalcularEfectoEscalado(danioInfusionAmarga, danioInfusionAmargaMax, cargaInfusionAmarga);
         AplicarDanioAlEnemigo(danio, "Infusión Amarga");

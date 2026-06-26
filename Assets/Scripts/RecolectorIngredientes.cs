@@ -15,6 +15,9 @@ public class RecolectorIngredientes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // AÑADIMOS ESTA LÍNEA: Si el objeto tiene tag "Lore", lo ignoramos
+        if (collision.CompareTag("Lore")) return;
+
         if (collision.CompareTag("Ingrediente"))
         {
             if (!ingredientesCercanos.Contains(collision.gameObject))
