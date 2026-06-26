@@ -5089,7 +5089,7 @@ MonoBehaviour:
   turnosMinimoEntreFrases: 2
   turnosMaximoEntreFrases: 1
   vidaJugadorMax: 100
-  vidaEnemigoMax: 10
+  vidaEnemigoMax: 75
   textoVidaJugador: {fileID: 853875053}
   textoVidaEnemigo: {fileID: 1320287560}
   barraVidaJugador: {fileID: 738873850}
