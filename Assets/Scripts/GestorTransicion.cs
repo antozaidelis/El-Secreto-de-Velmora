@@ -8,7 +8,7 @@ public class GestorTransicion : MonoBehaviour
     public static GestorTransicion Instancia { get; private set; }
 
     public Image panelNegro;
-    public float duracionFade = 0.3f;
+    public float duracionFade = 0.4f;
 
     void Awake()
     {
@@ -41,6 +41,20 @@ public class GestorTransicion : MonoBehaviour
         SceneManager.LoadScene(nombreEscena);
 
         yield return null;
+
+        yield return StartCoroutine(Fade(1f, 0f));
+    }
+
+    public void TransicionEntrePaneles(System.Action accionEnElMedio)
+    {
+        StartCoroutine(RutinaTransicionPaneles(accionEnElMedio));
+    }
+
+    private IEnumerator RutinaTransicionPaneles(System.Action accionEnElMedio)
+    {
+        yield return StartCoroutine(Fade(0f, 1f));
+
+        accionEnElMedio?.Invoke();
 
         yield return StartCoroutine(Fade(1f, 0f));
     }

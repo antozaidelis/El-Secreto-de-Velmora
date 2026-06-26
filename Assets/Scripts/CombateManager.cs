@@ -305,7 +305,14 @@ public class CombateManager : MonoBehaviour
         }
         else
         {
-            IniciarBatalla();
+            if (GestorTransicion.Instancia != null)
+            {
+                GestorTransicion.Instancia.TransicionEntrePaneles(() => IniciarBatalla());
+            }
+            else
+            {
+                IniciarBatalla();
+            }
         }
     }
 
