@@ -15,6 +15,7 @@ public class HuronAI : MonoBehaviour
     private bool persiguiendo = false;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private bool yaActivado = false;
 
     void Start()
     {
@@ -102,10 +103,20 @@ public class HuronAI : MonoBehaviour
     // DETECCIÓN DEL CHOQUE E INICIO DE COMBATE
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !yaActivado)
         {
+            yaActivado = true;
+
             Debug.Log("¡EL HURÓN TE ATRAPÓ! Intentando cargar sistema_combate...");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("sistema_combate");
+
+            if (GestorTransicion.Instancia != null)
+            {
+                GestorTransicion.Instancia.CambiarEscenaConFade("sistema_combate");
+            }
+            else
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("sistema_combate");
+            }
         }
     }
 
