@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: b9fb7f88fb27c4840837079f71431926
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3118195505207691413
+    second: sprite_buho_0
+  - first:
+      213: -4003489779848535048
+    second: sprite_buho_1
+  - first:
+      213: 7609339620820549314
+    second: sprite_buho_2
+  - first:
+      213: -7527525241615261739
+    second: sprite_buho_3
+  - first:
+      213: -6276213446436213338
+    second: sprite_buho_4
+  - first:
+      213: -8185085406229021746
+    second: sprite_buho_5
+  - first:
+      213: 6394748365367518746
+    second: sprite_buho_6
+  - first:
+      213: -8811149607611612490
+    second: sprite_buho_7
+  - first:
+      213: 5615631281225905190
+    second: sprite_buho_8
+  - first:
+      213: -4445895896074964460
+    second: sprite_buho_9
+  - first:
+      213: -8929196696944719353
+    second: sprite_buho_10
+  - first:
+      213: -9112249173993821956
+    second: sprite_buho_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_buho_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 798
+        width: 261
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6730eb75b1f9b4d0800000000000000
+      internalID: -3118195505207691413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 802
+        width: 266
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3a832b14fb078c0800000000000000
+      internalID: -4003489779848535048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_2
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 801
+        width: 262
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce7052b11ec99960800000000000000
+      internalID: 7609339620820549314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_3
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 810
+        width: 258
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5df5cbfdcabd88790800000000000000
+      internalID: -7527525241615261739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_4
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 808
+        width: 277
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ada3ae8f1966e8a0800000000000000
+      internalID: -6276213446436213338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 808
+        width: 242
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb3c71803cb86e80800000000000000
+      internalID: -8185085406229021746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 531
+        width: 258
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16adb9e1c5beb850800000000000000
+      internalID: 6394748365367518746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_7
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 539
+        width: 276
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b2cc778d1288b580800000000000000
+      internalID: -8811149607611612490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_8
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 541
+        width: 257
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624ba0bb5eabeed40800000000000000
+      internalID: 5615631281225905190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_9
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 533
+        width: 262
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412b516ec310d42c0800000000000000
+      internalID: -4445895896074964460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_10
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 534
+        width: 264
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ac40db9ee151480800000000000000
+      internalID: -8929196696944719353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_buho_11
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 530
+        width: 261
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf8604fa7a9ca8180800000000000000
+      internalID: -9112249173993821956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprite_buho_0: -3118195505207691413
+      sprite_buho_1: -4003489779848535048
+      sprite_buho_10: -8929196696944719353
+      sprite_buho_11: -9112249173993821956
+      sprite_buho_2: 7609339620820549314
+      sprite_buho_3: -7527525241615261739
+      sprite_buho_4: -6276213446436213338
+      sprite_buho_5: -8185085406229021746
+      sprite_buho_6: 6394748365367518746
+      sprite_buho_7: -8811149607611612490
+      sprite_buho_8: 5615631281225905190
+      sprite_buho_9: -4445895896074964460
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

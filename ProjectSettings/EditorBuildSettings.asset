@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/sistema_combate_dragon.unity
+    guid: 637db4fa57e263844931e63f3a116c29
+  - enabled: 1
+    path: Assets/Scenes/sistema_combate_buho.unity
+    guid: 902e0514ceb13064fa98fadada76e38f
+  - enabled: 1
     path: Assets/Scenes/MenuInicio.unity
     guid: 40a41af8b3e0efb4cb4dd3d0776dcfb9
   m_configObjects:

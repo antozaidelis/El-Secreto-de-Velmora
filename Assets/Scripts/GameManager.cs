@@ -34,12 +34,35 @@ public class GameManager : MonoBehaviour
 
     public List<SlotInventario> slotsInventario = new List<SlotInventario>();
     public bool huronDerrotado = false;
+    public bool buhoDerrotado = false;
+    public bool dragonDerrotado = false;
 
     private Dictionary<string, Sprite> mapaIconos = new Dictionary<string, Sprite>();
     private Dictionary<string, string> mapaNombresMostrar = new Dictionary<string, string>();
     private Dictionary<string, string> mapaDescripciones = new Dictionary<string, string>();
 
     public event System.Action OnInventarioCambiado;
+
+    public void MarcarEnemigoDerrotado(string idEnemigo)
+    {
+        switch (idEnemigo.ToLower())
+        {
+            case "huron": huronDerrotado = true; break;
+            case "buho": buhoDerrotado = true; break;
+            case "dragon": dragonDerrotado = true; break;
+        }
+    }
+
+    public bool EstaEnemigoDerrotado(string idEnemigo)
+    {
+        switch (idEnemigo.ToLower())
+        {
+            case "huron": return huronDerrotado;
+            case "buho": return buhoDerrotado;
+            case "dragon": return dragonDerrotado;
+            default: return false;
+        }
+    }
 
     void Awake()
     {

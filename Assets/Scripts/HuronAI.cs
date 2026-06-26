@@ -8,6 +8,10 @@ public class HuronAI : MonoBehaviour
     public float distanciaMaximaDeCasa = 8f;
     public float margenFrenado = 0.5f;
 
+    [Header("Escena de combate")]
+    public string nombreEscenaCombate = "sistema_combate";
+    public string idEnemigo = "huron";
+
     [Header("Referencias")]
     public Transform jugador;
 
@@ -19,8 +23,9 @@ public class HuronAI : MonoBehaviour
 
     void Start()
     {
+
         // Si ya fue derrotado en esta sesión de juego, desaparece directamente
-        if (GameManager.Instancia != null && GameManager.Instancia.huronDerrotado)
+        if (GameManager.Instancia != null && GameManager.Instancia.EstaEnemigoDerrotado(idEnemigo))
         {
             Destroy(gameObject);
             return;
@@ -103,19 +108,21 @@ public class HuronAI : MonoBehaviour
     // DETECCIÓN DEL CHOQUE E INICIO DE COMBATE
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("OnTriggerEnter2D detectó: " + collision.gameObject.name + " con tag: " + collision.tag);
+
         if (collision.CompareTag("Player") && !yaActivado)
         {
             yaActivado = true;
 
-            Debug.Log("¡EL HURÓN TE ATRAPÓ! Intentando cargar sistema_combate...");
+            Debug.Log("¡Atrapado! Intentando cargar " + nombreEscenaCombate + "...");
 
             if (GestorTransicion.Instancia != null)
             {
-                GestorTransicion.Instancia.CambiarEscenaConFade("sistema_combate");
+                GestorTransicion.Instancia.CambiarEscenaConFade(nombreEscenaCombate);
             }
             else
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("sistema_combate");
+                UnityEngine.SceneManagement.SceneManager.LoadScene(nombreEscenaCombate);
             }
         }
     }

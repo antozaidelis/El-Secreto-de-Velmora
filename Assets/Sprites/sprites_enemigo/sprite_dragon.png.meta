@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: edc15e8ea2ad9bb4fa34f28cb2b58e2b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7939016432952463790
+    second: sprite_dragon_0
+  - first:
+      213: -1968387688439014083
+    second: sprite_dragon_1
+  - first:
+      213: 8072500061574404718
+    second: sprite_dragon_2
+  - first:
+      213: -1316402250263709541
+    second: sprite_dragon_3
+  - first:
+      213: 7227902842174127624
+    second: sprite_dragon_4
+  - first:
+      213: 1050852491909796138
+    second: sprite_dragon_5
+  - first:
+      213: -5075808690507556794
+    second: sprite_dragon_6
+  - first:
+      213: 7989172932898283048
+    second: sprite_dragon_7
+  - first:
+      213: -4223615647321230191
+    second: sprite_dragon_8
+  - first:
+      213: 6786263287512429010
+    second: sprite_dragon_9
+  - first:
+      213: 2030891633403539392
+    second: sprite_dragon_10
+  - first:
+      213: -6938073281902380151
+    second: sprite_dragon_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprite_dragon_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 757
+        width: 260
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e21efed92f2d190800000000000000
+      internalID: -7939016432952463790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_1
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 754
+        width: 270
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d175a83d1eea4e0800000000000000
+      internalID: -1968387688439014083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 755
+        width: 284
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6a167b3908470070800000000000000
+      internalID: 8072500061574404718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_3
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 751
+        width: 269
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b98b183c0233bbde0800000000000000
+      internalID: -1316402250263709541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_4
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 760
+        width: 272
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e33d2075bae4460800000000000000
+      internalID: 7227902842174127624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_5
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 755
+        width: 274
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a211e9316c0659e00800000000000000
+      internalID: 1050852491909796138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_6
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 363
+        width: 275
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648d47683ea1f89b0800000000000000
+      internalID: -5075808690507556794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_7
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 361
+        width: 272
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e519a347e3fde60800000000000000
+      internalID: 7989172932898283048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_8
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 360
+        width: 270
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194f2a942f3b265c0800000000000000
+      internalID: -4223615647321230191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_9
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 364
+        width: 285
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1f37c3186ad2e50800000000000000
+      internalID: 6786263287512429010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_10
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 363
+        width: 270
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cfa4523e2d2f2c10800000000000000
+      internalID: 2030891633403539392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_dragon_11
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 365
+        width: 260
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b749e0c1307bf90800000000000000
+      internalID: -6938073281902380151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprite_dragon_0: -7939016432952463790
+      sprite_dragon_1: -1968387688439014083
+      sprite_dragon_10: 2030891633403539392
+      sprite_dragon_11: -6938073281902380151
+      sprite_dragon_2: 8072500061574404718
+      sprite_dragon_3: -1316402250263709541
+      sprite_dragon_4: 7227902842174127624
+      sprite_dragon_5: 1050852491909796138
+      sprite_dragon_6: -5075808690507556794
+      sprite_dragon_7: 7989172932898283048
+      sprite_dragon_8: -4223615647321230191
+      sprite_dragon_9: 6786263287512429010
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

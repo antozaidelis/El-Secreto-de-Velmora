@@ -17,6 +17,10 @@ public class CombateManager : MonoBehaviour
     public TextMeshProUGUI textoDialogo;
     public Button botonSkip;
     public string nombreEnemigo = "Hurón del Pensamiento";
+
+    [Header("Identificador único del enemigo (para guardar si fue derrotado)")]
+    public string idEnemigo = "huron";
+
     [TextArea]
     public string[] frasesEnemigo = new string[]
     {
@@ -160,6 +164,10 @@ public class CombateManager : MonoBehaviour
     [Range(0f, 1f)] public float reduccionPosturaDefensiva = 0.25f;
     public int turnosDebilitamiento = 1;
     [Range(0f, 1f)] public float bonusDanioDebilitado = 0.25f;
+
+    [Header("Nombres de las acciones del enemigo (para mostrar en pantalla)")]
+    public string nombreAtaqueEnemigo = "Mordida";
+    public string nombrePosturaDefensiva = "Postura Defensiva";
 
     private bool enPosturaDefensiva = false;
     private int turnosDebilitamientoRestantes = 0;
@@ -705,7 +713,7 @@ public class CombateManager : MonoBehaviour
             vidaJugador -= danioMordida;
             if (vidaJugador < 0) vidaJugador = 0;
 
-            if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "¡Mordida!";
+            if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "¡" + nombreAtaqueEnemigo + "!";
 
             if (camaraCombate != null)
                 StartCoroutine(TemblorDeCamara());
@@ -713,7 +721,7 @@ public class CombateManager : MonoBehaviour
         else
         {
             enPosturaDefensiva = true;
-            if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = "Postura Defensiva";
+            if (textoEstadoEnemigo != null) textoEstadoEnemigo.text = nombrePosturaDefensiva;
         }
 
         if (turnosDebilitamientoRestantes > 0)
@@ -814,7 +822,7 @@ public class CombateManager : MonoBehaviour
         if (ganoJugador)
         {
             if (GameManager.Instancia != null)
-                GameManager.Instancia.huronDerrotado = true;
+                GameManager.Instancia.MarcarEnemigoDerrotado(idEnemigo);
 
             if (caraMisu != null) caraMisu.sprite = caraMisuGanando;
             if (caraEnemigoBatalla != null) caraEnemigoBatalla.sprite = caraEnemigoPerdiendo;
